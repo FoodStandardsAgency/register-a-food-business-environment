@@ -1,0 +1,50 @@
+version: '3'
+services:
+  temp-store:
+    image: postgres
+    restart: always
+    ports: 
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+  back-end-cache-db:
+    build: ./back-end-cache-db
+    restart: always
+    ports: 
+      - "27019:27017"
+  back-end-config-db:
+    build: ./config-db
+    restart: always
+    ports: 
+      - "27017:27017"
+  front-end-cache-db:
+    build: ./front-end-cache-db
+    restart: always
+    ports: 
+      - "27018:27017"
+  registration-service:
+    build: 
+      context: ./register-a-food-business-service
+      args:
+        NPM_TOKEN: ${NPM_TOKEN}
+    env_file: 
+      - .env-registration-service
+    ports:
+      - "4000:4000"
+    command: "npm run start:docker"
+  collections-service:
+    build:
+      context: ./register-a-food-business-collections-service
+    env_file:
+      - .env-collections-service
+    ports:
+      - "4001:4001"
+    command: "npm run start:docker"
+  front-end:
+    build:
+      context: ./register-a-food-business-front-end
+    env_file:
+      - .env-front-end
+    ports:
+      - "3000:3000"
+    command: "npm run dev"
