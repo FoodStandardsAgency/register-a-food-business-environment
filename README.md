@@ -18,7 +18,7 @@ Before you start, you'll need [Docker Compose](https://docs.docker.com/compose/i
 - .env-collections-service
 - .env-front-end
 - .env-registration-service
-- back-end-cache-db/mongo-init.js
+- config-db/mongo-init.js
 
 Ask another developer on Register a food business for these.
 
