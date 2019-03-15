@@ -22,6 +22,11 @@ services:
     restart: always
     ports: 
       - "27018:27017"
+  status-db:
+    build: ./status-db
+    restart: always
+    ports: 
+      - "27020:27017"
   registration-service:
     build: 
       context: ./register-a-food-business-service
