@@ -9,12 +9,4 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
-RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && \
-    yarn config set proxy $http_proxy && \
-    yarn config set https-proxy $https_proxy && \
-    yarn config set progress=false && \
-    yarn config set strict-ssl false && \
-    yarn config set registry https://registry.npmjs.org/ && \
-    yarn install --maxsockets 10 --verbose
-
 EXPOSE 3000

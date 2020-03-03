@@ -9,12 +9,4 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
-RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc && \
-    npm config set proxy $http_proxy && \
-    npm config set https-proxy $https_proxy && \
-    npm config set strict-ssl false && \
-    npm config set progress=false && \
-    npm config set registry https://registry.npmjs.org/ && \
-    npm install --production --verbose --max-sockets=40
-
 EXPOSE 4001

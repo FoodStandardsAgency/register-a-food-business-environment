@@ -119,7 +119,7 @@ services:
       - "3000:3000"
     depends_on:
       - front-end-cache-db
-    entrypoint: "yarn dev"
+    entrypoint: "npm run dev"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-front-end/src:/usr/src/app/src
