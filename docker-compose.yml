@@ -1,50 +1,125 @@
-version: '3'
+version: '3.7'
+volumes:
+  mongo-be-cache:
+  mongo-be-config:
+  mongo-fe-cache:
+  pgdata:
+  npm-cache:
 services:
+  cache-test:
+    build:
+      dockerfile: NpmCacheDockerfile
+      context: .
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./var/npm/rafbs-node_modules:/usr/src/rafbs/node_modules
+      - ./var/npm/rafbcs-node_modules:/usr/src/rafbcs/node_modules
+      - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
+
+
   temp-store:
     image: postgres
     restart: always
     ports: 
       - "5432:5432"
+
+    volumes:
+      - pgdata:/var/lib/
+
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
+
   back-end-cache-db:
-    build: ./back-end-cache-db
+    build:
+      context: ./back-end-cache-db
+
+    volumes:
+      - mongo-be-cache:/data/db
+
     restart: always
     ports: 
       - "27019:27017"
+
   back-end-config-db:
-    build: ./config-db
+    build:
+      context: ./config-db
+
+    volumes:
+      - mongo-be-config:/data/db
+
     restart: always
     ports: 
       - "27017:27017"
+
   front-end-cache-db:
-    build: ./front-end-cache-db
+    build:
+      context: ./front-end-cache-db
+
+    volumes:
+      - mongo-fe-cache:/data/db
+
     restart: always
     ports: 
       - "27018:27017"
+
   registration-service:
     build: 
-      context: ./../register-a-food-business-service
+      context: ./register-a-food-business-service
       args:
-        NPM_TOKEN: ${NPM_TOKEN}
+        - NPM_TOKEN=${NPM_TOKEN}
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
     env_file: 
       - .env-registration-service
     ports:
       - "4000:4000"
     command: "npm run start:docker"
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-service/src:/usr/src/app/src
+    depends_on:
+      - temp-store
+      - back-end-cache-db
   collections-service:
     build:
-      context: ./../register-a-food-business-collections-service
+      context: ./register-a-food-business-collections-service
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
     env_file:
       - .env-collections-service
     ports:
       - "4001:4001"
+    depends_on:
+      - temp-store
     command: "npm run start:docker"
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-collections-service/src:/usr/src/app/src
+
   front-end:
     build:
-      context: ./../register-a-food-business-front-end
+      context: ./register-a-food-business-front-end
+      args:
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
+        - NPM_TOKEN=${NPM_TOKEN}
     env_file:
       - .env-front-end
     ports:
       - "3000:3000"
-    command: "npm run dev"
+    depends_on:
+      - front-end-cache-db
+    entrypoint: "yarn dev"
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-front-end/src:/usr/src/app/src

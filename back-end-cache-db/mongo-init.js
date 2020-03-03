@@ -1,4 +1,4 @@
-db = db.getSiblingDB('register_a_food_business_cache');
+db = db.getSiblingDB('admin');
 db.createUser({
   user: 'test-user',
   pwd: 'test-password',
@@ -9,4 +9,4 @@ db.createUser({
     },
   ],
 });
-db.createCollection('cachedRegistrations');
+db.createCollection('sessions');
