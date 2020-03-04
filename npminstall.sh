@@ -2,10 +2,12 @@
 
     cd /usr/src/rafbs;
     echo `pwd`;
-
+    echo $1;
     ls -lah;
 
-    echo "//registry.npmjs.org/:_authToken=a96c1e30-8f99-4e1c-90f6-dfd006731544" > .npmrc && \
+    env;
+
+    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc && \
     npm config set proxy "http://docker.for.win.localhost:3128" && \
     npm config set https-proxy "http://docker.for.win.localhost:3128" && \
     npm config set progress=false && \
@@ -16,7 +18,7 @@
 
     cd /usr/src/rafbcs &&
 
-    echo "//registry.npmjs.org/:_authToken=a96c1e30-8f99-4e1c-90f6-dfd006731544" > .npmrc && \
+    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc && \
     npm config set proxy "http://docker.for.win.localhost:3128" && \
     npm config set https-proxy "http://docker.for.win.localhost:3128" && \
     npm config set progress=false && \
@@ -27,7 +29,7 @@
 
     cd /usr/src/rafbfe &&
 
-    echo "//registry.npmjs.org/:_authToken=a96c1e30-8f99-4e1c-90f6-dfd006731544" > .npmrc && \
+    echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc && \
     npm config set proxy "http://docker.for.win.localhost:3128" && \
     npm config set https-proxy "http://docker.for.win.localhost:3128" && \
     npm config set progress=false && \
