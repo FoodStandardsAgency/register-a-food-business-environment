@@ -21,7 +21,6 @@ services:
       - ./var/npm/rafbcs-node_modules:/usr/src/rafbcs/node_modules
       - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
 
-
   temp-store:
     image: postgres
     restart: always
