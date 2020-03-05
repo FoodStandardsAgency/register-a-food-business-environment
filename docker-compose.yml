@@ -5,8 +5,9 @@ volumes:
   mongo-fe-cache:
   pgdata:
   npm-cache:
+
 services:
-  cache-test:
+  bootstrap-npm-install:
     env_file:
       - .env
     build:
@@ -28,20 +29,16 @@ services:
     restart: always
     ports: 
       - "5432:5432"
-
     volumes:
       - pgdata:/var/lib/
-
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
 
   back-end-cache-db:
     build:
       context: ./back-end-cache-db
-
     volumes:
       - mongo-be-cache:/data/db
-
     restart: always
     ports: 
       - "27019:27017"
@@ -49,10 +46,8 @@ services:
   back-end-config-db:
     build:
       context: ./config-db
-
     volumes:
       - mongo-be-config:/data/db
-
     restart: always
     ports: 
       - "27017:27017"
@@ -60,15 +55,13 @@ services:
   front-end-cache-db:
     build:
       context: ./front-end-cache-db
-
     volumes:
       - mongo-fe-cache:/data/db
-
     restart: always
     ports: 
       - "27018:27017"
 
-  registration-service:
+  registrationservice:
     build: 
       context: ./register-a-food-business-service
       args:
@@ -80,7 +73,8 @@ services:
       - .env-registration-service
     ports:
       - "4000:4000"
-    command: "npm run start:docker"
+      - "9229:9229"
+    command: "npm run debug:docker"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-service/src:/usr/src/app/src
@@ -93,6 +87,8 @@ services:
       - temp-store
       - back-end-cache-db
       - back-end-config-db
+      - bootstrap-npm-install
+
   collections-service:
     build:
       context: ./register-a-food-business-collections-service
@@ -107,7 +103,8 @@ services:
       - "4001:4001"
     depends_on:
       - temp-store
-    command: "npm run start:docker"
+      - bootstrap-npm-install
+    command: "npm run start"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-collections-service/src:/usr/src/app/src
@@ -130,6 +127,8 @@ services:
       - "3000:3000"
     depends_on:
       - front-end-cache-db
+      - bootstrap-npm-install
+
     entrypoint: "npm run dev"
     volumes:
       - npm-cache:/opt/npmcache

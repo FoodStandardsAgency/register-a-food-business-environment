@@ -10,18 +10,7 @@ db.createUser({
   ],
 });
 
-db.createCollection('lcConfig');
-db.lcConfig.insertOne({
-	"_id" : 8015,
-	"local_council" : "City of Cardiff Council",
-	"local_council_email" : "FoodSafetyCardiff-SRSWales@valeofglamorgan.gov.uk",
-	"local_council_notify_emails" : [
-		"FoodSafetyCardiff-SRSWales@valeofglamorgan.gov.uk"
-	],
-	"local_council_phone_number" : "0300 123 6696",
-	"local_council_url" : "cardiff",
-	"country" : "wales"
-});
+
 
 db.createCollection('status');
 db.status.insertOne({
@@ -103,6 +92,19 @@ db.createUser({
       db: 'admin',
     },
   ],
+});
+
+db.createCollection('lcConfig');
+db.lcConfig.insertOne({
+	"_id" : 8015,
+	"local_council" : "City of Cardiff Council",
+	"local_council_email" : "FoodSafetyCardiff-SRSWales@valeofglamorgan.gov.uk",
+	"local_council_notify_emails" : [
+		"FoodSafetyCardiff-SRSWales@valeofglamorgan.gov.uk"
+	],
+	"local_council_phone_number" : "0300 123 6696",
+	"local_council_url" : "cardiff",
+	"country" : "wales"
 });
 
 db.createCollection('configVersion');
