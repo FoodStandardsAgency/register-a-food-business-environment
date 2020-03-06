@@ -1,12 +1,12 @@
-db = db.getSiblingDB('admin');
+db = db.getSiblingDB('register_a_food_business_cache');
 db.createUser({
-  user: 'test-user',
-  pwd: 'test-password',
-  roles: [
+  user: 'test-user',
+  pwd: 'test-password',
+  roles: [
     {
-      role: 'root',
-      db: 'admin',
+      role: 'root',
+      db: 'admin',
     },
   ],
 });
-db.createCollection('sessions');
+db.createCollection('cachedRegistrations'); 
