@@ -74,7 +74,8 @@ services:
     ports:
       - "4000:4000"
       - "9229:9229"
-    command: "npm run debug:docker"
+      - "35729:35729"
+    command: "npm run start"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-service/src:/usr/src/app/src
