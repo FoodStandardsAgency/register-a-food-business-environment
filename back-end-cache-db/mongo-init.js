@@ -9,4 +9,4 @@ db.createUser({
     },
   ],
 });
-db.createCollection('cachedRegistrations'); 
+db.createCollection('cachedRegistrations');
