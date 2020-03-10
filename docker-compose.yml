@@ -30,9 +30,13 @@ services:
     ports: 
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/
+      - pgdata:/var/lib/postgresql/data/pgdata
+
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_USER: ${POSTGRES_DB}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: /var/lib/postgresql/data/pgdata
 
   back-end-cache-db:
     build:
@@ -75,7 +79,7 @@ services:
       - "4000:4000"
       - "9229:9229"
       - "35729:35729"
-    command: "npm run start"
+    command: "yes"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-service/src:/usr/src/app/src
