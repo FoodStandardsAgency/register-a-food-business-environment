@@ -83,6 +83,9 @@ services:
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-service/src:/usr/src/app/src
+      - ./register-a-food-business-service/tests:/usr/src/app/tests
+      - ./register-a-food-business-service/scripts:/usr/src/app/scripts
+      - ./register-a-food-business-service/docs:/usr/src/app/docs
       - type: bind
         read_only: true
         source: ./var/npm/rafbs-node_modules
@@ -113,6 +116,9 @@ services:
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-collections-service/src:/usr/src/app/src
+      - ./register-a-food-business-collections-service/tests:/usr/src/app/tests
+      - ./register-a-food-business-collections-service/scripts:/usr/src/app/scripts
+      - ./register-a-food-business-collections-service/docs:/usr/src/app/docs
       - type: bind
         read_only: true
         source: ./var/npm/rafbcs-node_modules
@@ -138,6 +144,10 @@ services:
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-front-end/src:/usr/src/app/src
+      - ./register-a-food-business-front-end/pages:/usr/src/app/pages
+      - ./register-a-food-business-front-end/pages_unit_tests:/usr/src/app/pages_unit_tests
+      - ./register-a-food-business-front-end/tests:/usr/src/app/tests
+      - ./register-a-food-business-front-end/docs:/usr/src/app/docs
       - type: bind
         read_only: true
         source: ./var/npm/rafbfe-node_modules
