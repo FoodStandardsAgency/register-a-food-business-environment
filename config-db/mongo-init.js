@@ -97,24 +97,41 @@ db.createUser({
 db.createCollection('lcConfig');
 db.lcConfig.insertOne({
 	"_id" : 8015,
-	"local_council" : "City of Cardiff Council",
-	"local_council_email" : "FoodSafetyCardiff-SRSWales@valeofglamorgan.gov.uk",
+	"local_council" : "Fakes council",
+	"local_council_email" : "fakecouncil@test.com",
 	"local_council_notify_emails" : [
-		"FoodSafetyCardiff-SRSWales@valeofglamorgan.gov.uk"
+		"LC1_fsatestemail.valid@gmail.com"
 	],
-	"local_council_phone_number" : "0300 123 6696",
-	"local_council_url" : "cardiff",
-	"country" : "wales"
+	"local_council_phone_number" : "01234 456788",
+	"local_council_url" : "bath",
+	"country" : "england"
+});
+
+db.lcConfig.insertOne({
+	"_id" : 1001,
+	"local_council" : "Test Council",
+	"local_council_email" : "fakecouncil@test.com",
+	"local_council_notify_emails" : [
+		"LC1_fsatestemail.valid@gmail.com"
+	],
+	"local_council_phone_number" : "02388 899766",
+	"local_council_url" : "bristol",
+	"country" : "england",
+	"auth": {
+		"public_key":"blah",
+		"private_key":"blah2",
+		"url":"http://test.url.com"
+	}
 });
 
 db.createCollection('configVersion');
 db.configVersion.insertOne({
 	"_id" : "1.6.0",
 	"notify_template_keys" : {
-		"fbo_submission_complete" : "f4a85ab9-218f-4c2d-9170-d540313c4831",
-		"lc_new_registration" : "943ca3e1-b730-47c6-b739-fec3c18d75ce",
-		"fbo_feedback" : "6b3fc252-3436-4c15-9a37-caf9d70c79a3",
-		"fd_feedback" : "890eedd7-99b6-43e8-9d91-e7e2d79c502e"
+		"fbo_submission_complete" : "integration-test",
+		"lc_new_registration" : "integration-test",
+		"fbo_feedback" : "integration-test",
+		"fd_feedback" : "integration-test"
 	},
 	"future_delivery_email" : "fsatestemail.valid@gmail.com",
 	"path" : {

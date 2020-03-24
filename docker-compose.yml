@@ -30,7 +30,7 @@ services:
     ports: 
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data/pgdata
+      - pgdata:/var/lib/postgresql
 
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
@@ -42,7 +42,8 @@ services:
     build:
       context: ./back-end-cache-db
     volumes:
-      - mongo-be-cache:/data/db
+      - mongo-be-cache:/data
+      - ./back-end-cache-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     restart: always
     ports: 
       - "27019:27017"
@@ -51,7 +52,8 @@ services:
     build:
       context: ./config-db
     volumes:
-      - mongo-be-config:/data/db
+      - mongo-be-config:/data
+      - ./config-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     restart: always
     ports: 
       - "27017:27017"
@@ -60,7 +62,9 @@ services:
     build:
       context: ./front-end-cache-db
     volumes:
-      - mongo-fe-cache:/data/db
+      - mongo-fe-cache:/data
+      - ./front-end-cache-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+
     restart: always
     ports: 
       - "27018:27017"
@@ -79,10 +83,12 @@ services:
       - "4000:4000"
       - "9229:9229"
       - "35729:35729"
-    command: "yes"
+    command: "npm run start:docker"
+#    command: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-service/src:/usr/src/app/src
+      - ./register-a-food-business-service/reports:/usr/src/app/reports
       - ./register-a-food-business-service/tests:/usr/src/app/tests
       - ./register-a-food-business-service/scripts:/usr/src/app/scripts
       - ./register-a-food-business-service/docs:/usr/src/app/docs
