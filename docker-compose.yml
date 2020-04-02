@@ -83,8 +83,8 @@ services:
       - "4000:4000"
       - "9229:9229"
       - "35729:35729"
-    command: "npm run start:docker"
-#    command: "tail -f /dev/null"
+#    command: "npm run start:docker"
+    command: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-service/src:/usr/src/app/src
@@ -92,6 +92,7 @@ services:
       - ./register-a-food-business-service/tests:/usr/src/app/tests
       - ./register-a-food-business-service/scripts:/usr/src/app/scripts
       - ./register-a-food-business-service/docs:/usr/src/app/docs
+      - ./register-a-food-business-service/features:/usr/src/app/features
       - type: bind
         read_only: true
         source: ./var/npm/rafbs-node_modules

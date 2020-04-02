@@ -15,10 +15,13 @@ WORKDIR /usr/src/rafbs
 
 COPY ./register-a-food-business-service /usr/src/rafbs
 COPY ./register-a-food-business-collections-service /usr/src/rafbcs
-COPY ./register-a-food-business-front-end /usr/src/rafbfe
+COPY ./register-a-food-business-front-end /usr/src/rafbfeS
 
 COPY --chown=node:node ./npminstall.sh /home/node/npminstall.sh
+COPY --chown=node:node ./npminit.sh /home/node/npminit.sh
 
 RUN chmod u+x /home/node/npminstall.sh
+RUN chmod u+x /home/node/npminit.sh
 
-ENTRYPOINT ["/bin/bash", "/home/node/npminstall.sh"]
+ENTRYPOINT ["/bin/bash"]
+CMD ["/home/node/npminstall.sh"]
