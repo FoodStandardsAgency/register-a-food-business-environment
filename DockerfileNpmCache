@@ -17,8 +17,8 @@ COPY ./register-a-food-business-service /usr/src/rafbs
 COPY ./register-a-food-business-collections-service /usr/src/rafbcs
 COPY ./register-a-food-business-front-end /usr/src/rafbfeS
 
-COPY --chown=node:node ./npminstall.sh /home/node/npminstall.sh
-COPY --chown=node:node ./npminit.sh /home/node/npminit.sh
+COPY --chown=node:node ./bootstrap-npm-cache/npminstall.sh /home/node/npminstall.sh
+COPY --chown=node:node ./bootstrap-npm-cache/npminit.sh /home/node/npminit.sh
 
 RUN chmod u+x /home/node/npminstall.sh
 RUN chmod u+x /home/node/npminit.sh
