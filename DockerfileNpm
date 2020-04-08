@@ -11,9 +11,9 @@ RUN mkdir -p /opt/npmcache
 
 WORKDIR /usr/src/app
 
-COPY --chown=node:node ./bootstrap-npm-cache/npminit.sh /home/node/npminit.sh
+COPY --chown=node:node ./bootstrap-npm/npminit.sh /home/node/npminit.sh
 
 RUN chmod u+x /home/node/npminit.sh
 
-ENTRYPOINT ["/usr/local/bin/npm"]
+ENTRYPOINT ["/home/node/npminit.sh"]
 CMD []

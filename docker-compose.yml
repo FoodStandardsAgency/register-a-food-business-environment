@@ -53,6 +53,7 @@ services:
   npm-bs:
     env_file:
       - .env
+      - .env-registration-service
     build:
       dockerfile: DockerfileNpm
       context: .
@@ -63,15 +64,8 @@ services:
         - no_proxy=
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-service/package.json:/usr/src/app/package.json
-      - ./register-a-food-business-service/package-lock.json:/usr/src/app/package-lock.json
+      - ./register-a-food-business-service:/usr/src/app
       - ./var/npm/rafbs-node_modules:/usr/src/app/node_modules
-      - ./register-a-food-business-service/src:/usr/src/app/src
-      - ./register-a-food-business-service/reports:/usr/src/app/reports
-      - ./register-a-food-business-service/tests:/usr/src/app/tests
-      - ./register-a-food-business-service/scripts:/usr/src/app/scripts
-      - ./register-a-food-business-service/docs:/usr/src/app/docs
-      - ./register-a-food-business-service/features:/usr/src/app/features
 
   bootstrap-npm-install:
     env_file:
