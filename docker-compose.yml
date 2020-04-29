@@ -141,7 +141,6 @@ services:
       - front-end-cache-db
       - bootstrap-npm-install
 
-    entrypoint: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-front-end:/usr/src/app
