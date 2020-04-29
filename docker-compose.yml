@@ -7,57 +7,6 @@ volumes:
   npm-cache:
 
 services:
-  yarn-fe:
-    env_file:
-      - .env
-    build:
-        dockerfile: DockerfileNpm
-        context: .
-        args:
-          - NPM_TOKEN=${NPM_TOKEN}
-          - http_proxy=${DOCKER_HTTP_PROXY}
-          - https_proxy=${DOCKER_HTTPS_PROXY}
-          - no_proxy=
-
-    volumes:
-      - npm-cache:/opt/npmcache
-      - ./register-a-food-business-front-end:/usr/src/app
-      - ./var/npm/rafbfe-node_modules:/usr/src/app/node_modules
-
-  npm-cs:
-    env_file:
-      - .env
-      - .env-collections-service
-    build:
-      dockerfile: DockerfileNpm
-      context: .
-      args:
-        - NPM_TOKEN=${NPM_TOKEN}
-        - http_proxy=${DOCKER_HTTP_PROXY}
-        - https_proxy=${DOCKER_HTTPS_PROXY}
-        - no_proxy=
-    volumes:
-      - npm-cache:/opt/npmcache
-      - ./register-a-food-business-collections-service:/usr/src/app
-      - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
-
-  npm-bs:
-    env_file:
-      - .env
-      - .env-registration-service
-    build:
-      dockerfile: DockerfileNpm
-      context: .
-      args:
-        - NPM_TOKEN=${NPM_TOKEN}
-        - http_proxy=${DOCKER_HTTP_PROXY}
-        - https_proxy=${DOCKER_HTTPS_PROXY}
-        - no_proxy=
-    volumes:
-      - npm-cache:/opt/npmcache
-      - ./register-a-food-business-service:/usr/src/app
-      - ./var/npm/rafbs-node_modules:/usr/src/app/node_modules
-
   bootstrap-npm-install:
     env_file:
       - .env
@@ -66,8 +15,8 @@ services:
       context: .
       args:
         - NPM_TOKEN=${NPM_TOKEN}
-        - http_proxy=${DOCKER_HTTP_PROXY}
-        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - http_proxy=
+        - https_proxy=
         - no_proxy=
     volumes:
       - npm-cache:/opt/npmcache
@@ -134,26 +83,18 @@ services:
         - http_proxy=${DOCKER_HTTP_PROXY}
         - https_proxy=${DOCKER_HTTPS_PROXY}
         - no_proxy=
-    env_file: 
+    env_file:
+      - .env
       - .env-registration-service
     ports:
       - "4000:4000"
       - "9229:9229"
       - "35729:35729"
-    command: "npm run start:docker"
-    #    command: "tail -f /dev/null"
+
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-service/src:/usr/src/app/src
-      - ./register-a-food-business-service/reports:/usr/src/app/reports
-      - ./register-a-food-business-service/tests:/usr/src/app/tests
-      - ./register-a-food-business-service/scripts:/usr/src/app/scripts
-      - ./register-a-food-business-service/docs:/usr/src/app/docs
-      - ./register-a-food-business-service/features:/usr/src/app/features
-      - type: bind
-        read_only: true
-        source: ./var/npm/rafbs-node_modules
-        target: /usr/src/app/node_modules
+      - ./register-a-food-business-service:/usr/src/app
+      - ./var/npm/rafbs-node_modules:/usr/src/app/node_modules
 
     depends_on:
       - temp-store
@@ -161,7 +102,7 @@ services:
       - back-end-config-db
       - bootstrap-npm-install
 
-  collections-service:
+  collectionsservice:
     build:
       context: ./register-a-food-business-collections-service
       args:
@@ -170,23 +111,18 @@ services:
         - https_proxy=${DOCKER_HTTPS_PROXY}
         - no_proxy=
     env_file:
+      - .env
       - .env-collections-service
     ports:
       - "4001:4001"
     depends_on:
       - temp-store
       - bootstrap-npm-install
-    command: "npm run start"
+
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-collections-service/src:/usr/src/app/src
-      - ./register-a-food-business-collections-service/tests:/usr/src/app/tests
-      - ./register-a-food-business-collections-service/scripts:/usr/src/app/scripts
-      - ./register-a-food-business-collections-service/docs:/usr/src/app/docs
-      - type: bind
-        read_only: true
-        source: ./var/npm/rafbcs-node_modules
-        target: /usr/src/app/node_modules
+      - ./register-a-food-business-collections-service:/usr/src/app
+      - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
 
   front-end:
     build:
@@ -197,6 +133,7 @@ services:
         - no_proxy=
         - NPM_TOKEN=${NPM_TOKEN}
     env_file:
+      - .env
       - .env-front-end
     ports:
       - "3000:3000"
@@ -204,15 +141,8 @@ services:
       - front-end-cache-db
       - bootstrap-npm-install
 
-    entrypoint: "npm run dev"
+    entrypoint: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-front-end/src:/usr/src/app/src
-      - ./register-a-food-business-front-end/pages:/usr/src/app/pages
-      - ./register-a-food-business-front-end/pages_unit_tests:/usr/src/app/pages_unit_tests
-      - ./register-a-food-business-front-end/tests:/usr/src/app/tests
-      - ./register-a-food-business-front-end/docs:/usr/src/app/docs
-      - type: bind
-        read_only: true
-        source: ./var/npm/rafbfe-node_modules
-        target: /usr/src/app/node_modules
+      - ./register-a-food-business-front-end:/usr/src/app
+      - ./var/npm/rafbfe-node_modules:/usr/src/app/node_modules
