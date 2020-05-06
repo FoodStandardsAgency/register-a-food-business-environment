@@ -142,6 +142,41 @@ db.lcConfig.insertOne({
 	}
 });
 
+db.lcConfig.insertOne({
+	"_id" : 4012,
+	"local_council" : "Fakes cardiff council",
+	"local_council_email" : "fakecouncilcardiff@test.com",
+	"local_council_notify_emails" : [
+		"LC1_fsatestemail.validcardiff@gmail.com"
+	],
+	"local_council_phone_number" : "01233 333445",
+	"local_council_url" : "cardiff",
+	"country" : "england"
+});
+
+db.lcConfig.insertOne({
+	"_id" : 4013,
+	"local_council" : "Fakes vale of G council",
+	"local_council_email" : "fakecouncilvog@test.com",
+	"local_council_notify_emails" : [
+		"LC1_fsatestemail.validvog@gmail.com"
+	],
+	"local_council_phone_number" : "01233 333445",
+	"local_council_url" : "the-vale-of-glamorgan",
+	"country" : "england"
+});
+db.lcConfig.insertOne({
+	"_id" : 6008,
+	"local_council" : "Mid antrim",
+	"local_council_email" : "fakecounddcilvog@test.com",
+	"local_council_notify_emails" : [
+		"LC1_fsatestemail.validvog@gmail.com"
+	],
+	"local_council_phone_number" : "01299 333445",
+	"local_council_url" : "mid-and-east-antrim",
+	"country" : "england"
+});
+
 db.createCollection('configVersion');
 db.configVersion.insertOne({
 		"_id" : "1.7.0",

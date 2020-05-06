@@ -118,11 +118,39 @@ services:
     depends_on:
       - temp-store
       - bootstrap-npm-install
-
+    entrypoint: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-collections-service:/usr/src/app
       - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
+  selenium-chrome:
+    image: selenium/standalone-chrome:latest
+    volumes:
+    - /dev/shm:/dev/shm
+
+    ports:
+    - 4444:4444
+    - 5900:5900
+  front-end-ui-tests:
+    build:
+      context: ./register-a-food-business-UI-tests
+      args:
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
+        - NPM_TOKEN=${NPM_TOKEN}
+    env_file:
+      - .env
+      - .env-front-end
+
+    depends_on:
+      - front-end-cache-db
+      - bootstrap-npm-install
+
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-UI-tests:/usr/src/app
+      - ./var/npm/rafbfeui-node_modules:/usr/src/app/node_modules
 
   front-end:
     build:
@@ -140,7 +168,7 @@ services:
     depends_on:
       - front-end-cache-db
       - bootstrap-npm-install
-
+    entrypoint: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-front-end:/usr/src/app
