@@ -1,6 +1,9 @@
 register-a-food-business-service
 register-a-food-business-collections-service
 register-a-food-business-front-end
+register-a-food-business-healthcheck-dashboard
+register-a-food-business-performance-tests
+register-a-food-business-validation
 
 .env
 .env-collections-service
