@@ -18,27 +18,27 @@ Before you start, you'll need [Docker Compose](https://docs.docker.com/compose/i
 - .env-collections-service
 - .env-front-end
 - .env-registration-service
-- config-db/mongo-init.js
 
-Ask another developer on Register a food business for these.
+
+Copy the .env*.dist files and remove the postfix.
+
+Ask another developer on Register a food business for any missing values (e.g. NODE TOKEN)
 
 Once you've got these, as well as Docker Compose installed, there are two steps to get the environment running:
 
-`sh cloneRepos.sh`
+`./init_docker.sh`
 
-`docker-compose up --build`
+This will take a few minutes the first time, but after that you can simply run `docker-compose up -d` to start a new environment or individual services. 
 
-This will take a few minutes the first time, but after that you can simply run `docker-compose up` to start a new environment. 
+The platform can be reset to defaults using 
 
-Once the environment is up, the services will be available on the following ports:
+`./reset.sh`
 
-- Front end: 3000
-- Registrations service: 4000
-- Collections service: 4001
-- Temp store: 5432
-- Config db: 27017
-- Front end cache db: 27018
-- Back end cache db: 27019
+The platform can be hard reset by 
+
+`./reset.sh && docker system prune -a --volumes -f` -- this will wipe everything... and takes a while to run.
+
+Consult the docker-compose.yml file for ports and details.
 
 We recommend [Postman](https://www.getpostman.com/) to test the APIs on ports 4000 / 4001, [TablePlus](https://tableplus.io/) to view the temp store on 5432, and [Robo 3T](https://robomongo.org/) to look at the databases on ports 27017-27019, but of course these technology choices are up to the developer. 
 
