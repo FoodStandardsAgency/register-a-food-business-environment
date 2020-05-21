@@ -1,4 +1,9 @@
-version: '3.7'
+version: "3.7"
+
+networks:
+  rafb:
+    external: true
+
 volumes:
   mongo-be-cache:
   mongo-be-config:
@@ -29,7 +34,8 @@ services:
       - ./register-a-food-business-front-end/package.json:/usr/src/rafbfe/package.json
       - ./register-a-food-business-front-end/package-lock.json:/usr/src/rafbfe/package-lock.json
       - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
-
+    networks:
+      - rafb
   temp-store:
     image: postgres
     restart: always
@@ -43,7 +49,8 @@ services:
       POSTGRES_USER: ${POSTGRES_DB}
       POSTGRES_DB: ${POSTGRES_DB}
       PGDATA: /var/lib/postgresql/data/pgdata
-
+    networks:
+      - rafb
   back-end-cache-db:
     build:
       context: ./back-end-cache-db
@@ -53,6 +60,8 @@ services:
     restart: always
     ports: 
       - "27019:27017"
+    networks:
+      - rafb
 
   back-end-config-db:
     build:
@@ -63,6 +72,8 @@ services:
     restart: always
     ports: 
       - "27017:27017"
+    networks:
+      - rafb
 
   front-end-cache-db:
     build:
@@ -74,6 +85,9 @@ services:
     restart: always
     ports: 
       - "27018:27017"
+
+    networks:
+      - rafb
 
   registrationservice:
     build: 
@@ -90,6 +104,8 @@ services:
       - "4000:4000"
       - "9229:9229"
       - "35729:35729"
+    networks:
+      - rafb
 
     volumes:
       - npm-cache:/opt/npmcache
@@ -118,19 +134,13 @@ services:
     depends_on:
       - temp-store
       - bootstrap-npm-install
-    entrypoint: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-collections-service:/usr/src/app
       - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
-  selenium-chrome:
-    image: selenium/standalone-chrome:latest
-    volumes:
-    - /dev/shm:/dev/shm
+    networks:
+      - rafb
 
-    ports:
-    - 4444:4444
-    - 5900:5900
   front-end-ui-tests:
     build:
       context: ./register-a-food-business-UI-tests
@@ -151,7 +161,8 @@ services:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-UI-tests:/usr/src/app
       - ./var/npm/rafbfeui-node_modules:/usr/src/app/node_modules
-
+    networks:
+      - rafb
   front-end:
     build:
       context: ./register-a-food-business-front-end
@@ -168,8 +179,9 @@ services:
     depends_on:
       - front-end-cache-db
       - bootstrap-npm-install
-    entrypoint: "tail -f /dev/null"
     volumes:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-front-end:/usr/src/app
       - ./var/npm/rafbfe-node_modules:/usr/src/app/node_modules
+    networks:
+      - rafb
