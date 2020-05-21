@@ -1,0 +1,27 @@
+FROM node:12.13
+ARG NPM_TOKEN
+ARG http_proxy
+ARG https_proxy
+RUN echo $http_proxy
+ENV PATH="//usr/local/bin:${PATH}"
+
+RUN mkdir -p /usr/src/rafbs
+RUN mkdir -p /usr/src/rafbcs
+RUN mkdir -p /usr/src/rafbfe
+
+RUN mkdir -p /opt/npmcache
+
+WORKDIR /usr/src/rafbs
+
+COPY ./register-a-food-business-service /usr/src/rafbs
+COPY ./register-a-food-business-collections-service /usr/src/rafbcs
+COPY ./register-a-food-business-front-end /usr/src/rafbfeS
+
+COPY --chown=node:node ./bootstrap-npm-cache/npminstall.sh /home/node/npminstall.sh
+COPY --chown=node:node ./bootstrap-npm-cache/npminit.sh /home/node/npminit.sh
+
+RUN chmod u+x /home/node/npminstall.sh
+RUN chmod u+x /home/node/npminit.sh
+
+ENTRYPOINT ["/bin/bash"]
+CMD ["/home/node/npminstall.sh"]
