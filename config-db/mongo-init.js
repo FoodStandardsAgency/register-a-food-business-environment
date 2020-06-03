@@ -167,14 +167,14 @@ db.lcConfig.insertOne({
 });
 db.lcConfig.insertOne({
 	"_id" : 6008,
-	"local_council" : "Mid antrim",
-	"local_council_email" : "fakecounddcilvog@test.com",
+	"local_council" : "Mid & East Antrim Borough Council",
+	"local_council_email" : "fsatestemail.valid@gmail.com",
 	"local_council_notify_emails" : [
-		"LC1_fsatestemail.validvog@gmail.com"
+		"fsatestemail.valid@gmail.com"
 	],
-	"local_council_phone_number" : "01299 333445",
+	"local_council_phone_number" : "123456789",
 	"local_council_url" : "mid-and-east-antrim",
-	"country" : "england"
+	"country" : "northern-ireland",
 });
 
 db.createCollection('configVersion');
