@@ -10,6 +10,7 @@ volumes:
   mongo-fe-cache:
   pgdata:
   npm-cache:
+  elk-data:
 
 services:
   bootstrap-npm-install:
@@ -194,3 +195,7 @@ services:
       - "5044:5044"
     networks:
       - rafb
+    environment:
+      - ES_CONNECT_RETRY=120
+    volumes:
+      - elk-data:/var/lib/elasticsearch
