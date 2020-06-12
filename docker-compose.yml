@@ -26,14 +26,11 @@ services:
         - no_proxy=
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-service/package.json:/usr/src/rafbs/package.json
-      - ./register-a-food-business-service/package-lock.json:/usr/src/rafbs/package-lock.json
+      - ./register-a-food-business-service:/usr/src/rafbs
       - ./var/npm/rafbs-node_modules:/usr/src/rafbs/node_modules
-      - ./register-a-food-business-collections-service/package.json:/usr/src/rafbcs/package.json
-      - ./register-a-food-business-collections-service/package-lock.json:/usr/src/rafbcs/package-lock.json
+      - ./register-a-food-business-collections-service:/usr/src/rafbcs
       - ./var/npm/rafbcs-node_modules:/usr/src/rafbcs/node_modules
-      - ./register-a-food-business-front-end/package.json:/usr/src/rafbfe/package.json
-      - ./register-a-food-business-front-end/package-lock.json:/usr/src/rafbfe/package-lock.json
+      - ./register-a-food-business-front-end:/usr/src/rafbfe
       - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
     networks:
       - rafb
