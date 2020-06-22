@@ -1,50 +1,198 @@
-version: '3'
+version: "3.7"
+
+networks:
+  rafb:
+    external: true
+
+volumes:
+  mongo-be-cache:
+  mongo-be-config:
+  mongo-fe-cache:
+  pgdata:
+  npm-cache:
+  elk-data:
+
 services:
+  bootstrap-npm-install:
+    env_file:
+      - .env
+    build:
+      dockerfile: DockerfileNpmCache
+      context: .
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+        - http_proxy=
+        - https_proxy=
+        - no_proxy=
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-service:/usr/src/rafbs
+      - ./var/npm/rafbs-node_modules:/usr/src/rafbs/node_modules
+      - ./register-a-food-business-collections-service:/usr/src/rafbcs
+      - ./var/npm/rafbcs-node_modules:/usr/src/rafbcs/node_modules
+      - ./register-a-food-business-front-end:/usr/src/rafbfe
+      - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
+    networks:
+      - rafb
   temp-store:
     image: postgres
     restart: always
     ports: 
       - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_USER: ${POSTGRES_DB}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      - rafb
   back-end-cache-db:
-    build: ./back-end-cache-db
+    build:
+      context: ./back-end-cache-db
+    volumes:
+      - mongo-be-cache:/data
+      - ./back-end-cache-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     restart: always
     ports: 
       - "27019:27017"
+    networks:
+      - rafb
+
   back-end-config-db:
-    build: ./config-db
+    build:
+      context: ./config-db
+    volumes:
+      - mongo-be-config:/data
+      - ./config-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     restart: always
     ports: 
       - "27017:27017"
+    networks:
+      - rafb
+
   front-end-cache-db:
-    build: ./front-end-cache-db
+    build:
+      context: ./front-end-cache-db
+    volumes:
+      - mongo-fe-cache:/data
+      - ./front-end-cache-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+
     restart: always
     ports: 
       - "27018:27017"
-  registration-service:
+
+    networks:
+      - rafb
+
+  registrationservice:
     build: 
       context: ./register-a-food-business-service
       args:
-        NPM_TOKEN: ${NPM_TOKEN}
-    env_file: 
+        - NPM_TOKEN=${NPM_TOKEN}
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
+    env_file:
+      - .env
       - .env-registration-service
     ports:
       - "4000:4000"
-    command: "npm run start:docker"
-  collections-service:
+      - "9229:9229"
+      - "35729:35729"
+    networks:
+      - rafb
+
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-service:/usr/src/app
+      - ./var/npm/rafbs-node_modules:/usr/src/app/node_modules
+
+    depends_on:
+      - temp-store
+      - back-end-cache-db
+      - back-end-config-db
+      - bootstrap-npm-install
+
+  collectionsservice:
     build:
       context: ./register-a-food-business-collections-service
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
     env_file:
+      - .env
       - .env-collections-service
     ports:
       - "4001:4001"
-    command: "npm run start:docker"
+    depends_on:
+      - temp-store
+      - bootstrap-npm-install
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-collections-service:/usr/src/app
+      - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
+    networks:
+      - rafb
+
+  front-end-ui-tests:
+    build:
+      context: ./register-a-food-business-UI-tests
+      args:
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
+        - NPM_TOKEN=${NPM_TOKEN}
+    env_file:
+      - .env
+      - .env-front-end
+
+    depends_on:
+      - front-end-cache-db
+      - bootstrap-npm-install
+
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-UI-tests:/usr/src/app
+      - ./var/npm/rafbfeui-node_modules:/usr/src/app/node_modules
+    networks:
+      - rafb
   front-end:
     build:
       context: ./register-a-food-business-front-end
+      args:
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
+        - NPM_TOKEN=${NPM_TOKEN}
     env_file:
+      - .env
       - .env-front-end
     ports:
       - "3000:3000"
-    command: "npm run dev"
+    depends_on:
+      - front-end-cache-db
+      - bootstrap-npm-install
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./register-a-food-business-front-end:/usr/src/app
+      - ./var/npm/rafbfe-node_modules:/usr/src/app/node_modules
+    networks:
+      - rafb
+
+#  elk:
+#    image: sebp/elk
+#    ports:
+#      - "5601:5601"
+#      - "9200:9200"
+#      - "5044:5044"
+#    networks:
+#      - rafb
+#    environment:
+#      - ES_CONNECT_RETRY=120
+#    volumes:
+#      - elk-data:/var/lib/elasticsearch
