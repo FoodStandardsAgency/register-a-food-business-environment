@@ -177,6 +177,17 @@ db.lcConfig.insertOne({
 	"country" : "northern-ireland",
 });
 
+db.createCollection('supplierConfig');
+db.supplierConfig.insertOne({
+    "_id" : 1,
+    "supplier_name" : "Tascomi",
+    "supplier_url" : "tascomi",
+    "local_council_urls" : [ 
+        "cardiff", 
+        "bath"
+    ]
+});
+
 db.createCollection('configVersion');
 db.configVersion.insertOne({
 		"_id" : "1.7.0",
