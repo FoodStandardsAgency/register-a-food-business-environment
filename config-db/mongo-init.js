@@ -180,8 +180,8 @@ db.lcConfig.insertOne({
 db.createCollection('supplierConfig');
 db.supplierConfig.insertOne({
     "_id" : 1,
-    "supplier_name" : "Tascomi",
-    "supplier_url" : "tascomi",
+    "supplier_name" : "Test Supplier",
+    "supplier_url" : "test-supplier",
     "local_council_urls" : [ 
         "cardiff", 
         "bath"
