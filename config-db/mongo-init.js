@@ -207,11 +207,11 @@ db.configVersion.insertOne({
 			"/registration-role" : {
 				"on" : true,
 				"switches" : {
-					"Sole trader" : {
+					"SOLETRADER" : {
 						"/operator-name" : true,
 						"/operator-contact-details" : true
 					},
-					"Partnership" : {
+					"PARTNERSHIP" : {
 						"/partner-name" : true,
 						"/main-partnership-contact" : true,
 						"/operator-contact-details" : true
@@ -224,15 +224,15 @@ db.configVersion.insertOne({
 			"/operator-type" : {
 				"on" : false,
 				"switches" : {
-					"A person" : {
+					"PERSON" : {
 						"/operator-name" : true,
 						"/operator-contact-details" : true
 					},
-					"A company" : {
+					"COMPANY" : {
 						"/operator-company-details" : true,
 						"/contact-representative" : true
 					},
-					"A charity" : {
+					"CHARITY" : {
 						"/operator-charity-details" : true,
 						"/contact-representative" : true
 					}
@@ -431,11 +431,11 @@ db.configVersion.insertOne({
 		"/registration-role" : {
 			"on" : true,
 			"switches" : {
-				"Sole trader" : {
+				"SOLETRADER" : {
 					"/operator-name" : true,
 					"/operator-contact-details" : true
 				},
-				"Partnership" : {
+				"PARTNERSHIP" : {
 					"/partner-name" : true,
 					"/main-partnership-contact" : true,
 					"/operator-contact-details" : true
@@ -448,15 +448,15 @@ db.configVersion.insertOne({
 		"/operator-type" : {
 			"on" : false,
 			"switches" : {
-				"A person" : {
+				"PERSON" : {
 					"/operator-name" : true,
 					"/operator-contact-details" : true
 				},
-				"A company" : {
+				"COMPANY" : {
 					"/operator-company-details" : true,
 					"/contact-representative" : true
 				},
-				"A charity" : {
+				"CHARITY" : {
 					"/operator-charity-details" : true,
 					"/contact-representative" : true
 				}
