@@ -1,16 +1,9 @@
 #!/bin/bash -e
 
-cd ~/../..
-# Remove old/conflicting packages - doesn't seem to be needed any more
-# sudo apt -yq remove cmdtest yarn
 # Update package index
 sudo apt-get update
 # Install packages to allow apt to use a repository over HTTPS
 sudo apt-get -yq install apt-transport-https ca-certificates curl software-properties-common expect
-# Add Docker's GPG key 
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-# Add Docker repository
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu artful stable"
 # Add Yarn's GPG key
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 # Add Yarn repository
@@ -18,7 +11,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 # Update package index
 sudo apt-get update
 # Quietly install packages
-sudo apt-get -yq install npm yarn docker-ce
+sudo apt-get -yq install npm yarn
 # Output some versions
 docker --version
 echo yarn $(yarn --version)
@@ -32,14 +25,6 @@ export NVM_DIR="$HOME/.nvm"
 # Install desired node version
 nvm install 12.13.0
 echo node $(node --version)
-# Allow current user to run Docker commands
-sudo usermod -a -G docker $USER
-# Download Docker Compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-# Apply executable permissions to the binary
-sudo chmod +x /usr/local/bin/docker-compose
-# Output version
-docker-compose --version
 # Install Azure CLI prerequisites - these may not be needed now
 # sudo apt-get install apt-transport-https lsb-release software-properties-common dirmngr -y
 # Add CLI repository
@@ -50,6 +35,3 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO 
 # Update sources and install CLI
 sudo apt-get update
 sudo apt-get install azure-cli
-# Reboot to apply changes
-echo "Setup complete. Rebooting..."
-sudo reboot
