@@ -30,8 +30,9 @@ cd register-a-food-business-UI-tests
 git checkout develop
 yarn install
 cd ..
-# Create blank .env and init files ready to paste contents from secure location
-touch .env-front-end
-touch .env-registration-service
-touch .env-collections-service
+# Create .env and init files ready to paste an missing contents from secure location
+cp .env-front-end.dist .env-front-end
+cp .env-registration-service.dist .env-registration-service
+cp .env-collections-service.dist .env-collections-service
+cp .env.dist .env
 touch config-db/mongo-init.js
