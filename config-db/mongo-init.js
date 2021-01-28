@@ -195,7 +195,10 @@ db.configVersion.insertOne({
 			"fbo_submission_complete" : "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
 			"lc_new_registration" : "9bea0a7d-50fe-40f7-898f-da8405f32796",
 			"fbo_feedback" : "6b3fc252-3436-4c15-9a37-caf9d70c79a3",
-			"fd_feedback" : "890eedd7-99b6-43e8-9d91-e7e2d79c502e"
+			"fd_feedback" : "890eedd7-99b6-43e8-9d91-e7e2d79c502e",
+			"fbo_submission_complete_welsh" : "e7ba9297-d917-484a-855c-7a6c87c2117e",
+			"lc_new_registration_welsh" : "b42f76a6-c8a3-4548-8b6a-3f732e81fb56",
+			"fbo_feedback_welsh" : "d55ce5a7-3ee5-4a87-8366-a21d7577a2c7"
 		},
 		"future_delivery_email" : "fsatestemail.valid@gmail.com",
 		"path" : {
