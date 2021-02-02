@@ -58,7 +58,10 @@ db.status.insertOne({
 	"mostRecentUpdateStatusInCacheSucceeded" : true,
 	"updateStatusInCacheSucceeded" : 0,
 	"updateStatusInCacheFailed" : 0,
-	"mostRecentAddNotificationToStatusSucceeded" : true
+	"mostRecentAddNotificationToStatusSucceeded" : true,
+	"directSubmissionsReceived" : 0,
+	"directRegistrationsSucceeded" : 0,
+	"mostRecentDirectRegistrationSucceeded" : true
 });
 db.status.insertOne({
 	"_id" : "frontEndStatus",
