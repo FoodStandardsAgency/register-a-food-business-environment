@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "register-a-food-business-front-end"
+		},
+		{
+			"path": "register-a-food-business-service"
+		},
+		{
+			"path": "register-a-food-business-collections-service"
+		},
+		{
+			"path": "register-a-food-business-UI-tests"
+		},
+		{
+			"path": "register-a-food-business-validation"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
