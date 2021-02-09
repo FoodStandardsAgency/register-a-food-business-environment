@@ -5,10 +5,7 @@ networks:
     external: true
 
 volumes:
-  mongo-be-cache:
-  mongo-be-config:
-  mongo-fe-cache:
-  pgdata:
+  mongo-cosmos-db:
   npm-cache:
   elk-data:
 
@@ -34,61 +31,21 @@ services:
       - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
     networks:
       - rafb
-  temp-store:
-    image: postgres
-    restart: always
-    ports: 
-      - "5432:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql
 
-    environment:
-      POSTGRES_PASSWORD: ${POSTGRES_PASS}
-      POSTGRES_USER: ${POSTGRES_DB}
-      POSTGRES_DB: ${POSTGRES_DB}
-      PGDATA: /var/lib/postgresql/data/pgdata
-    networks:
-      - rafb
-  back-end-cache-db:
+  cosmos-db:
     build:
-      context: ./back-end-cache-db
+      context: ./cosmos-db
     volumes:
-      - mongo-be-cache:/data
-      - ./back-end-cache-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo-cosmos-db:/data
+      - ./cosmos-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     restart: always
-    ports: 
-      - "27019:27017"
-    networks:
-      - rafb
-
-  back-end-config-db:
-    build:
-      context: ./config-db
-    volumes:
-      - mongo-be-config:/data
-      - ./config-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-    restart: always
-    ports: 
+    ports:
       - "27017:27017"
     networks:
       - rafb
 
-  front-end-cache-db:
-    build:
-      context: ./front-end-cache-db
-    volumes:
-      - mongo-fe-cache:/data
-      - ./front-end-cache-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-
-    restart: always
-    ports: 
-      - "27018:27017"
-
-    networks:
-      - rafb
-
   registrationservice:
-    build: 
+    build:
       context: ./register-a-food-business-service
       args:
         - NPM_TOKEN=${NPM_TOKEN}
@@ -111,9 +68,7 @@ services:
       - ./var/npm/rafbs-node_modules:/usr/src/app/node_modules
 
     depends_on:
-      - temp-store
-      - back-end-cache-db
-      - back-end-config-db
+      - cosmos-db
       - bootstrap-npm-install
 
   collectionsservice:
@@ -130,7 +85,7 @@ services:
     ports:
       - "4001:4001"
     depends_on:
-      - temp-store
+      - cosmos-db
       - bootstrap-npm-install
     volumes:
       - npm-cache:/opt/npmcache
@@ -152,7 +107,7 @@ services:
       - .env-front-end
 
     depends_on:
-      - front-end-cache-db
+      - cosmos-db
       - bootstrap-npm-install
 
     volumes:
@@ -175,7 +130,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - front-end-cache-db
+      - cosmos-db
       - bootstrap-npm-install
     volumes:
       - npm-cache:/opt/npmcache
@@ -183,7 +138,6 @@ services:
       - ./var/npm/rafbfe-node_modules:/usr/src/app/node_modules
     networks:
       - rafb
-
 #  elk:
 #    image: sebp/elk
 #    ports:
