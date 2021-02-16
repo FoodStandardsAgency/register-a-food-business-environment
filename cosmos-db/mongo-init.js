@@ -29,9 +29,6 @@ db.status.insertOne({
   tascomiCreateRefnumberCallsSucceeded: 0,
   tascomiCreateRefnumberCallsFailed: 0,
   mostRecentTascomiCreateRefnumberSucceeded: true,
-  storeRegistrationsInDbSucceeded: 0,
-  storeRegistrationsInDbFailed: 0,
-  mostRecentStoreRegistrationInDbSucceeded: true,
   storeRegistrationsInCacheSucceeded: 0,
   storeRegistrationsInCacheFailed: 0,
   mostRecentRegistrationInCacheSucceeded: true,
@@ -1857,7 +1854,7 @@ db.registrations.insertOne({
   },
   hygieneAndStandards: {
     code: 8015,
-    local_council: "Fakes Council",
+    local_council: "Fakes cardiff council",
     local_council_notify_emails: ["fsatestemail.valid@gmail.com"],
     local_council_email: "fsatestemail.valid@gmail.com",
     local_council_phone_number: "0300 123 6696",
@@ -1899,7 +1896,7 @@ db.registrations.insertOne({
     },
   },
   hygiene_council_code: 4221,
-  local_council_url: "west-dorset",
+  local_council_url: "cardiff",
   source_council_id: 4221,
   registration_data_version: "2.0.0",
 });
