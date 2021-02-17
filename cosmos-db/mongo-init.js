@@ -1453,10 +1453,10 @@ db.registrations.insertOne({
   _id: ObjectId("5dca72519315020042c8e345"),
   "fsa-rn": "K9ZLSA-78MVM6-W4LPF1",
   collected: true,
-  collected_at: new Date(Date.now()),
-  createdAt: new Date(Date.now()),
-  updatedAt: new Date(Date.now()),
-  reg_submission_date: new Date(Date.now()),
+  collected_at: new Date("2021-01-01"),
+  createdAt: new Date("2021-01-01"),
+  updatedAt: new Date("2021-01-01"),
+  reg_submission_date: new Date("2021-01-01"),
   establishment: {
     establishment_details: {
       establishment_trading_name: "sssssssssobdsdsdsdsd",
@@ -1566,10 +1566,10 @@ db.registrations.insertOne({
   _id: ObjectId("5dca867622ebd10042c84caa"),
   "fsa-rn": "A1D3X4-6FCTGC-5WEJQQ",
   collected: true,
-  collected_at: new Date(Date.now()),
-  createdAt: new Date(Date.now()),
-  updatedAt: new Date(Date.now()),
-  reg_submission_date: new Date(Date.now()),
+  collected_at: new Date("2021-01-01"),
+  createdAt: new Date("2021-01-01"),
+  updatedAt: new Date("2021-01-01"),
+  reg_submission_date: new Date("2021-01-01"),
   establishment: {
     establishment_details: {
       establishment_trading_name: "pfffffff",
@@ -1680,9 +1680,9 @@ db.registrations.insertOne({
   "fsa-rn": "E9S2RC-ED2PJ2-BXY9BA",
   collected: false,
   collected_at: null,
-  createdAt: new Date(Date.now()),
-  updatedAt: new Date(Date.now()),
-  reg_submission_date: new Date(Date.now()),
+  createdAt: new Date("2021-01-01"),
+  updatedAt: new Date("2021-01-01"),
+  reg_submission_date: new Date("2021-01-01"),
   establishment: {
     establishment_details: {
       establishment_trading_name: "cafecafe",
@@ -1793,9 +1793,9 @@ db.registrations.insertOne({
   "fsa-rn": "CTA4VV-BR5N6H-SS73C2",
   collected: false,
   collected_at: null,
-  createdAt: new Date(Date.now()),
-  updatedAt: new Date(Date.now()),
-  reg_submission_date: new Date(Date.now()),
+  createdAt: new Date("2021-01-01"),
+  updatedAt: new Date("2021-01-01"),
+  reg_submission_date: new Date("2021-01-01"),
   establishment: {
     establishment_details: {
       establishment_trading_name: "nonono",
@@ -1904,10 +1904,10 @@ db.registrations.insertOne({
   _id: ObjectId("5dcaa838a24e940041d684bf"),
   "fsa-rn": "PT07JA-VTZ577-ZDMAVZ",
   collected: true,
-  collected_at: new Date(Date.now()),
-  createdAt: new Date(Date.now()),
-  updatedAt: new Date(Date.now()),
-  reg_submission_date: new Date(Date.now()),
+  collected_at: new Date("2021-01-01"),
+  createdAt: new Date("2021-01-01"),
+  updatedAt: new Date("2021-01-01"),
+  reg_submission_date: new Date("2021-01-01"),
   establishment: {
     establishment_details: {
       establishment_trading_name: "Partners Co",
