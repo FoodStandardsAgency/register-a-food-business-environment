@@ -6,6 +6,7 @@ networks:
 
 volumes:
   mongo-cosmos-db:
+  pgdata:
   npm-cache:
   elk-data:
 
@@ -29,6 +30,22 @@ services:
       - ./var/npm/rafbcs-node_modules:/usr/src/rafbcs/node_modules
       - ./register-a-food-business-front-end:/usr/src/rafbfe
       - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
+    networks:
+      - rafb
+
+  temp-store:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
+      POSTGRES_USER: ${POSTGRES_DB}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: /var/lib/postgresql/data/pgdata
     networks:
       - rafb
 
@@ -68,6 +85,7 @@ services:
       - ./var/npm/rafbs-node_modules:/usr/src/app/node_modules
 
     depends_on:
+      - temp-store
       - cosmos-db
       - bootstrap-npm-install
 
@@ -85,7 +103,7 @@ services:
     ports:
       - "4001:4001"
     depends_on:
-      - cosmos-db
+      - temp-store
       - bootstrap-npm-install
     volumes:
       - npm-cache:/opt/npmcache
