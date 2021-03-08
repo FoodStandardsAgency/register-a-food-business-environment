@@ -170,7 +170,7 @@ db.suppliers.insertOne({
 
 db.createCollection("configVersion");
 db.configVersion.insertOne({
-  _id: "1.7.0",
+  _id: "2.1.0",
   notify_template_keys: {
     fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
     lc_new_registration: "9bea0a7d-50fe-40f7-898f-da8405f32796",
@@ -626,7 +626,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     feedback1: true,
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
@@ -702,7 +702,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     feedback1: true,
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
@@ -778,7 +778,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     feedback1: true,
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
@@ -864,7 +864,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -936,7 +936,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     feedback1: true,
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
@@ -1006,7 +1006,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     feedback1: true,
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
@@ -1101,7 +1101,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     feedback1: true,
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
@@ -1209,7 +1209,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1281,7 +1281,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1353,7 +1353,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1425,7 +1425,7 @@ db.registrations.insertOne({
       opening_hours_monday: "ddfg",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1503,7 +1503,7 @@ db.registrations.insertOne({
       opening_hours_tuesday: "sdfs",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1618,7 +1618,7 @@ db.registrations.insertOne({
       opening_hours_monday: "786",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1730,7 +1730,7 @@ db.registrations.insertOne({
       opening_hours_monday: "9999999999999",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1842,7 +1842,7 @@ db.registrations.insertOne({
       opening_hours_monday: "vbnvbnv",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
@@ -1950,7 +1950,7 @@ db.registrations.insertOne({
       opening_hours_tuesday: "10:00 - 12:00",
     },
   },
-  metadata: {
+  declaration: {
     declaration1:
       "I declare that the information I have given on this form is correct and complete to the best of my knowledge and belief.",
     declaration2:
