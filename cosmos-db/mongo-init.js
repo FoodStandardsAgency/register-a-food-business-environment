@@ -579,7 +579,11 @@ db.createUser({
 db.createCollection("registrations");
 db.registrations.insertOne({
   "fsa-rn": "0004-EMAILS-NS-TASCOMI-FAIL1",
-  reg_submission_date: "2020-02-09",
+  collected: true,
+  collected_at: new Date("2020-02-09"),
+  reg_submission_date: new Date("2020-02-09"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed Tascomi 1",
@@ -655,7 +659,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0004-EMAILS-NS-TASCOMI-FAIL2",
-  reg_submission_date: "2020-02-10",
+  collected: true,
+  collected_at: new Date("2020-02-10"),
+  reg_submission_date: new Date("2020-02-10"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed tascomi 2",
@@ -731,7 +739,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0004-EMAILS-FAILEDNOTIFICATIONS1",
-  reg_submission_date: "2020-02-14",
+  collected: true,
+  collected_at: new Date("2020-02-14"),
+  reg_submission_date: new Date("2020-02-14"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed notifications 1",
@@ -800,13 +812,13 @@ db.registrations.insertOne({
   status: {
     notifications: [
       {
-        time: "1/9/2020, 22:18:05",
+        time: new Date("1/9/2020, 22:18:05"),
         sent: false,
         type: "LC",
         address: "LC0_fsatestemail.valid@gmail.com",
       },
       {
-        time: "1/9/2020, 22:18:05",
+        time: new Date("1/9/2020, 22:18:05"),
         sent: false,
         type: "FBO",
         address: "LC0_fsatestemail.valid@gmail.com",
@@ -817,7 +829,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0004-EMAILS-FAILEDNOTIFICATIONS2",
-  reg_submission_date: "2020-02-14",
+  collected: true,
+  collected_at: new Date("2020-02-14"),
+  reg_submission_date: new Date("2020-02-14"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed notifications 2",
@@ -889,7 +905,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0004-EMAILS-NOSTATUS",
-  reg_submission_date: "2020-02-22",
+  collected: true,
+  collected_at: new Date("2020-02-14"),
+  reg_submission_date: new Date("2020-02-14"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Recent registration 999",
@@ -959,7 +979,11 @@ db.registrations.insertOne({
 });
 db.registrations.insertOne({
   "fsa-rn": "0004-EMAILS-FAILEDNOTIFICATIONS3",
-  reg_submission_date: "2020-02-09",
+  collected: true,
+  collected_at: new Date("2020-02-09"),
+  reg_submission_date: new Date("2020-02-09"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed notifications 3",
@@ -1028,24 +1052,24 @@ db.registrations.insertOne({
   status: {
     notifications: [
       {
-        time: "1/9/2020, 22:18:05",
+        time: new Date("1/9/2020, 22:18:05"),
         sent: false,
         type: "LC",
         address: "LC0_fsatestemail.valid@gmail.com",
       },
       {
-        time: "1/9/2020, 22:18:05",
+        time: new Date("1/9/2020, 22:18:05"),
         sent: false,
         type: "FBO",
         address: "LC0_fsatestemail.valid@gmail.com",
       },
     ],
     registration: {
-      time: "2/9/2020, 22:18:03",
+      time: new Date("2/9/2020, 22:18:03"),
       complete: false,
     },
     tascomi: {
-      time: "3/9/2020, 22:18:03",
+      time: new Date("3/9/2020, 22:18:03"),
       complete: false,
     },
   },
@@ -1053,7 +1077,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0004-EMAILS-NOFAILEDSTATUSES",
-  reg_submission_date: "2020-02-15",
+  collected: true,
+  collected_at: new Date("2020-02-15"),
+  reg_submission_date: new Date("2020-02-15"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Its all good ltd",
@@ -1123,31 +1151,31 @@ db.registrations.insertOne({
   status: {
     notifications: [
       {
-        time: "2/9/2020, 22:18:05",
+        time: new Date("2/9/2020, 22:18:05"),
         sent: true,
         type: "LC",
         address: "LC0_fsatestemail.valid@gmail.com",
       },
       {
-        time: "2/9/2020, 22:18:05",
+        time: new Date("2/9/2020, 22:18:05"),
         sent: true,
         type: "LC",
         address: "LC1_fsatestemail.valid@gmail.com",
       },
       {
-        time: "2/9/2020, 22:18:06",
+        time: new Date("2/9/2020, 22:18:06"),
         sent: true,
         type: "FBO",
         address: "fdgdfgdgdf@fhghfghfhf.con",
       },
       {
-        time: "2/9/2020, 22:18:06",
+        time: new Date("2/9/2020, 22:18:06"),
         sent: true,
         type: "FBO_FB",
         address: "fdgdfgdgdf@fhghfghfhf.con",
       },
       {
-        time: "2/9/2020, 22:18:06",
+        time: new Date("2/9/2020, 22:18:06"),
         sent: true,
         type: "FD_FB",
         address: "fdgdfgdgdf@fhghfghfhf.con",
@@ -1162,7 +1190,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0101-FAILED-REG1",
-  reg_submission_date: "2020-02-09",
+  collected: true,
+  collected_at: new Date("2020-02-12"),
+  reg_submission_date: new Date("2020-02-12"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed Registration 1",
@@ -1234,7 +1266,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0101-FAILED-REG2",
-  reg_submission_date: "2020-02-09",
+  collected: true,
+  collected_at: new Date("2020-02-09"),
+  reg_submission_date: new Date("2020-02-09"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed registration 2",
@@ -1306,7 +1342,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0101-FAILED-REG3",
-  reg_submission_date: "2020-02-09",
+  collected: true,
+  collected_at: new Date("2020-02-09"),
+  reg_submission_date: new Date("2020-02-09"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed registration 3",
@@ -1378,7 +1418,11 @@ db.registrations.insertOne({
 
 db.registrations.insertOne({
   "fsa-rn": "0101-NULL-NOTI-STAT",
-  reg_submission_date: "2020-02-09",
+  collected: true,
+  collected_at: new Date("2020-02-09"),
+  reg_submission_date: new Date("2020-02-09"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Failed registration 4",
@@ -1454,9 +1498,9 @@ db.registrations.insertOne({
   "fsa-rn": "K9ZLSA-78MVM6-W4LPF1",
   collected: true,
   collected_at: new Date("2021-01-01"),
-  createdAt: new Date("2021-01-01"),
-  updatedAt: new Date("2021-01-01"),
   reg_submission_date: new Date("2021-01-01"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "sssssssssobdsdsdsdsd",
@@ -1527,25 +1571,25 @@ db.registrations.insertOne({
     },
     notifications: [
       {
-        time: "11/12/2019, 08:50:27",
+        time: new Date("11/12/2019, 08:50:27"),
         sent: true,
         type: "LC",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 08:50:27",
+        time: new Date("11/12/2019, 08:50:27"),
         sent: true,
         type: "FBO",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 08:50:27",
+        time: new Date("11/12/2019, 08:50:27"),
         sent: true,
         type: "FBO_FB",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 08:50:28",
+        time: new Date("11/12/2019, 08:50:28"),
         sent: true,
         type: "FD_FB",
         address: "fsatestemail.valid@gmail.com",
@@ -1567,9 +1611,9 @@ db.registrations.insertOne({
   "fsa-rn": "A1D3X4-6FCTGC-5WEJQQ",
   collected: true,
   collected_at: new Date("2021-01-01"),
-  createdAt: new Date("2021-01-01"),
-  updatedAt: new Date("2021-01-01"),
   reg_submission_date: new Date("2021-01-01"),
+  direct_submission: true,
+  submission_language: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "pfffffff",
@@ -1641,25 +1685,25 @@ db.registrations.insertOne({
     },
     notifications: [
       {
-        time: "4/2/2020, 11:24:43",
+        time: new Date("4/2/2020, 11:24:43"),
         sent: true,
         type: "LC",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "4/2/2020, 11:24:43",
+        time: new Date("4/2/2020, 11:24:43"),
         sent: true,
         type: "FBO",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "4/2/2020, 11:24:44",
+        time: new Date("4/2/2020, 11:24:44"),
         sent: true,
         type: "FBO_FB",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "4/2/2020, 11:24:44",
+        time: new Date("4/2/2020, 11:24:44"),
         sent: true,
         type: "FD_FB",
         address: "fsatestemail.valid@gmail.com",
@@ -1680,9 +1724,9 @@ db.registrations.insertOne({
   "fsa-rn": "E9S2RC-ED2PJ2-BXY9BA",
   collected: false,
   collected_at: null,
-  createdAt: new Date("2021-01-01"),
-  updatedAt: new Date("2021-01-01"),
   reg_submission_date: new Date("2021-01-01"),
+  direct_submission: false,
+  submission_language: "cy",
   establishment: {
     establishment_details: {
       establishment_trading_name: "cafecafe",
@@ -1754,25 +1798,25 @@ db.registrations.insertOne({
     },
     notifications: [
       {
-        time: "11/12/2019, 12:32:33",
+        time: new Date("11/12/2019, 12:32:33"),
         sent: false,
         type: "LC",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:32:33",
+        time: new Date("11/12/2019, 12:32:33"),
         sent: true,
         type: "FBO",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:32:33",
+        time: new Date("11/12/2019, 12:32:33"),
         sent: true,
         type: "FBO_FB",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:32:34",
+        time: new Date("11/12/2019, 12:32:34"),
         sent: true,
         type: "FD_FB",
         address: "fsatestemail.valid@gmail.com",
@@ -1793,9 +1837,9 @@ db.registrations.insertOne({
   "fsa-rn": "CTA4VV-BR5N6H-SS73C2",
   collected: false,
   collected_at: null,
-  createdAt: new Date("2021-01-01"),
-  updatedAt: new Date("2021-01-01"),
   reg_submission_date: new Date("2021-01-01"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "nonono",
@@ -1866,25 +1910,25 @@ db.registrations.insertOne({
     },
     notifications: [
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: false,
         type: "LC",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: true,
         type: "FBO",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: true,
         type: "FBO_FB",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: true,
         type: "FD_FB",
         address: "fsatestemail.valid@gmail.com",
@@ -1905,9 +1949,9 @@ db.registrations.insertOne({
   "fsa-rn": "PT07JA-VTZ577-ZDMAVZ",
   collected: true,
   collected_at: new Date("2021-01-01"),
-  createdAt: new Date("2021-01-01"),
-  updatedAt: new Date("2021-01-01"),
   reg_submission_date: new Date("2021-01-01"),
+  direct_submission: false,
+  submission_langage: "en",
   establishment: {
     establishment_details: {
       establishment_trading_name: "Partners Co",
@@ -1972,25 +2016,25 @@ db.registrations.insertOne({
     },
     notifications: [
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: true,
         type: "LC",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: true,
         type: "FBO",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: true,
         type: "FBO_FB",
         address: "fsatestemail.valid@gmail.com",
       },
       {
-        time: "11/12/2019, 12:37:28",
+        time: new Date("11/12/2019, 12:37:28"),
         sent: true,
         type: "FD_FB",
         address: "fsatestemail.valid@gmail.com",
