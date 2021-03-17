@@ -369,7 +369,7 @@ db.configVersion.insertOne({
   },
 });
 db.configVersion.insertOne({
-  _id: "1.6.0",
+  _id: "1.7.0",
   notify_template_keys: {
     fbo_submission_complete: "integration-test",
     lc_new_registration: "integration-test",
@@ -1603,7 +1603,7 @@ db.registrations.insertOne({
   hygiene_council_code: 8015,
   local_council_url: "fakes",
   source_council_id: 8015,
-  registration_data_version: "2.0.0",
+  registration_data_version: "2.1.0",
 });
 
 db.registrations.insertOne({
@@ -1717,7 +1717,7 @@ db.registrations.insertOne({
   hygiene_council_code: 8015,
   local_council_url: "fakes",
   source_council_id: 8015,
-  registration_data_version: "2.0.0",
+  registration_data_version: "2.1.0",
 });
 db.registrations.insertOne({
   _id: ObjectId("5dcaa65fa24e940041d684bd"),
@@ -1830,7 +1830,7 @@ db.registrations.insertOne({
   hygiene_council_code: 8015,
   local_council_url: "fakes",
   source_council_id: 8015,
-  registration_data_version: "2.0.0",
+  registration_data_version: "2.1.0",
 });
 db.registrations.insertOne({
   _id: ObjectId("5dcaa787a24e940041d684be"),
@@ -1942,7 +1942,7 @@ db.registrations.insertOne({
   hygiene_council_code: 4221,
   local_council_url: "cardiff",
   source_council_id: 4221,
-  registration_data_version: "2.0.0",
+  registration_data_version: "2.1.0",
 });
 db.registrations.insertOne({
   _id: ObjectId("5dcaa838a24e940041d684bf"),
@@ -2048,7 +2048,7 @@ db.registrations.insertOne({
   hygiene_council_code: 4003,
   local_council_url: "city-of-london",
   source_council_id: 4003,
-  registration_data_version: "2.0.0",
+  registration_data_version: "2.1.0",
 });
 
 db = db.getSiblingDB("front-end-cache");
