@@ -169,7 +169,7 @@ db.suppliers.insertOne({
 });
 
 db.createCollection("version");
-db.configVersion.insertOne({
+db.version.insertOne({
   _id: "2.1.0",
   notify_template_keys: {
     fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
@@ -368,7 +368,7 @@ db.configVersion.insertOne({
     },
   },
 });
-db.configVersion.insertOne({
+db.version.insertOne({
   _id: "1.7.0",
   notify_template_keys: {
     fbo_submission_complete: "integration-test",
