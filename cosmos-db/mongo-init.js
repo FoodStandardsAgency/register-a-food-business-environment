@@ -168,7 +168,7 @@ db.suppliers.insertOne({
   local_council_urls: ["cardiff", "bath"],
 });
 
-db.createCollection("configVersion");
+db.createCollection("version");
 db.configVersion.insertOne({
   _id: "2.1.0",
   notify_template_keys: {
