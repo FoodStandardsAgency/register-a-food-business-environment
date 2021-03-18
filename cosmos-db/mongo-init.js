@@ -168,8 +168,8 @@ db.suppliers.insertOne({
   local_council_urls: ["cardiff", "bath"],
 });
 
-db.createCollection("version");
-db.version.insertOne({
+db.createCollection("configVersion");
+db.configVersion.insertOne({
   _id: "2.1.0",
   notify_template_keys: {
     fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
@@ -368,7 +368,7 @@ db.version.insertOne({
     },
   },
 });
-db.version.insertOne({
+db.configVersion.insertOne({
   _id: "1.7.0",
   notify_template_keys: {
     fbo_submission_complete: "integration-test",
