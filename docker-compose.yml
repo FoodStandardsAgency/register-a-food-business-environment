@@ -25,7 +25,6 @@ services:
       - npm-cache:/opt/npmcache
       - ./register-a-food-business-service:/usr/src/rafbs
       - ./var/npm/rafbs-node_modules:/usr/src/rafbs/node_modules
-      - ./register-a-food-business-collections-service:/usr/src/rafbcs
       - ./var/npm/rafbcs-node_modules:/usr/src/rafbcs/node_modules
       - ./register-a-food-business-front-end:/usr/src/rafbfe
       - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
@@ -70,29 +69,6 @@ services:
     depends_on:
       - cosmos-db
       - bootstrap-npm-install
-
-  collectionsservice:
-    build:
-      context: ./register-a-food-business-collections-service
-      args:
-        - NPM_TOKEN=${NPM_TOKEN}
-        - http_proxy=${DOCKER_HTTP_PROXY}
-        - https_proxy=${DOCKER_HTTPS_PROXY}
-        - no_proxy=
-    env_file:
-      - .env
-      - .env-collections-service
-    ports:
-      - "4001:4001"
-    depends_on:
-      - cosmos-db
-      - bootstrap-npm-install
-    volumes:
-      - npm-cache:/opt/npmcache
-      - ./register-a-food-business-collections-service:/usr/src/app
-      - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
-    networks:
-      - rafb
 
   front-end-ui-tests:
     build:
