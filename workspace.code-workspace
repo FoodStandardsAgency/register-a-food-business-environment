@@ -1,21 +1,27 @@
 {
 	"folders": [
 		{
+			"name": "register-a-food-business-front-end",
 			"path": "register-a-food-business-front-end"
 		},
 		{
+			"name": "register-a-food-business-service",
 			"path": "register-a-food-business-service"
 		},
 		{
+			"name": "register-a-food-business-collections-service",
 			"path": "register-a-food-business-collections-service"
 		},
 		{
+			"name": "register-a-food-business-UI-tests",
 			"path": "register-a-food-business-UI-tests"
 		},
 		{
+			"name": "register-a-food-business-validation",
 			"path": "register-a-food-business-validation"
 		},
 		{
+			"name": "register-a-food-business-environment",
 			"path": "."
 		}
 	],
