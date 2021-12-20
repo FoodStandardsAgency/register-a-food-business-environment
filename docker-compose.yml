@@ -73,7 +73,7 @@ services:
 
   collectionsservice:
     build:
-      context: ./register-a-food-business-collections-service
+      context: ./register-a-food-business-service
       args:
         - NPM_TOKEN=${NPM_TOKEN}
         - http_proxy=${DOCKER_HTTP_PROXY}
