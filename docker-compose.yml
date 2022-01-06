@@ -57,7 +57,6 @@ services:
       - .env-registration-service
     ports:
       - "4000:4000"
-      - "9229:9229"
       - "35729:35729"
     networks:
       - rafb
@@ -129,6 +128,7 @@ services:
       - .env-front-end
     ports:
       - "3000:3000"
+      - "9229:9229"
     depends_on:
       - cosmos-db
       - bootstrap-npm-install
