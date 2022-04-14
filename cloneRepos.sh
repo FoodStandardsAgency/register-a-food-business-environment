@@ -2,7 +2,7 @@
 
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-front-end.git
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-collections-service.git
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git ./register-a-food-business-collections-service
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-validation.git
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-UI-tests.git
 
