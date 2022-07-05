@@ -16,9 +16,6 @@
       "path": "register-a-food-business-validation"
     },
     {
-      "path": "register-a-food-business-authentication"
-    },
-    {
       "path": "."
     }
   ]
