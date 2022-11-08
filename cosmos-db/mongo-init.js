@@ -170,14 +170,14 @@ db.suppliers.insertOne({
 
 db.createCollection("configVersion");
 db.configVersion.insertOne({
-  _id: "2.1.0",
+  _id: "2.2.0",
   notify_template_keys: {
     fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
-    lc_new_registration: "9bea0a7d-50fe-40f7-898f-da8405f32796",
+    lc_new_registration: "9be4c8b8-b500-49f7-8047-2799a6bf93e4",
     fbo_feedback: "6b3fc252-3436-4c15-9a37-caf9d70c79a3",
     fd_feedback: "890eedd7-99b6-43e8-9d91-e7e2d79c502e",
     fbo_submission_complete_welsh: "e7ba9297-d917-484a-855c-7a6c87c2117e",
-    lc_new_registration_welsh: "b42f76a6-c8a3-4548-8b6a-3f732e81fb56",
+    lc_new_registration_welsh: "ff21a1f1-1a5f-4343-a748-dfab0251e2b9",
     fbo_feedback_welsh: "d55ce5a7-3ee5-4a87-8366-a21d7577a2c7",
   },
   future_delivery_email: "fsatestemail.valid@gmail.com",
@@ -1603,7 +1603,7 @@ db.registrations.insertOne({
   hygiene_council_code: 8015,
   local_council_url: "fakes",
   source_council_id: 8015,
-  registration_data_version: "2.1.0",
+  registration_data_version: "2.2.0",
 });
 
 db.registrations.insertOne({
@@ -1717,7 +1717,7 @@ db.registrations.insertOne({
   hygiene_council_code: 8015,
   local_council_url: "fakes",
   source_council_id: 8015,
-  registration_data_version: "2.1.0",
+  registration_data_version: "2.2.0",
 });
 db.registrations.insertOne({
   _id: ObjectId("5dcaa65fa24e940041d684bd"),
@@ -1830,7 +1830,7 @@ db.registrations.insertOne({
   hygiene_council_code: 8015,
   local_council_url: "fakes",
   source_council_id: 8015,
-  registration_data_version: "2.1.0",
+  registration_data_version: "2.2.0",
 });
 db.registrations.insertOne({
   _id: ObjectId("5dcaa787a24e940041d684be"),
@@ -1942,7 +1942,7 @@ db.registrations.insertOne({
   hygiene_council_code: 4221,
   local_council_url: "cardiff",
   source_council_id: 4221,
-  registration_data_version: "2.1.0",
+  registration_data_version: "2.2.0",
 });
 db.registrations.insertOne({
   _id: ObjectId("5dcaa838a24e940041d684bf"),
@@ -2048,7 +2048,7 @@ db.registrations.insertOne({
   hygiene_council_code: 4003,
   local_council_url: "city-of-london",
   source_council_id: 4003,
-  registration_data_version: "2.1.0",
+  registration_data_version: "2.2.0",
 });
 
 db = db.getSiblingDB("front-end-cache");
