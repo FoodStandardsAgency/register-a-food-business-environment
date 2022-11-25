@@ -6,7 +6,7 @@ git clone https://github.com/FoodStandardsAgency/register-a-food-business-servic
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-UI-tests.git
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-validation.git
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-authentication.git
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.git
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.wiki.git register-a-food-business-wiki
 
 # Login to npm to allow private packages to be obtained (this will prompt for credentials)
 echo "Enter npm credentials when prompted"
