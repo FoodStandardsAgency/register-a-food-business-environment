@@ -18,5 +18,15 @@
     {
       "path": "."
     }
-  ]
+  ],
+  "settings": {
+    "search.exclude": {
+      "**/register-a-food-business-collections-service": true,
+      "register-a-food-business-collections-service": true
+    },
+    "files.exclude": {
+      "**/register-a-food-business-collections-service": true,
+      "register-a-food-business-collections-service": true
+    }
+  }
 }
