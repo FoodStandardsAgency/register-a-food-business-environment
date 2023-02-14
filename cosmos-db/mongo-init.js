@@ -170,6 +170,217 @@ db.suppliers.insertOne({
 
 db.createCollection("configVersion");
 db.configVersion.insertOne({
+  _id: "2.3.0",
+  notify_template_keys: {
+    fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
+    lc_new_registration: "31e8dc1c-1a77-4c14-8119-54004e7226c3",
+    fbo_feedback: "6b3fc252-3436-4c15-9a37-caf9d70c79a3",
+    fd_feedback: "890eedd7-99b6-43e8-9d91-e7e2d79c502e",
+    fbo_submission_complete_welsh: "e7ba9297-d917-484a-855c-7a6c87c2117e",
+    lc_new_registration_welsh: "b42f76a6-c8a3-4548-8b6a-3f732e81fb56",
+    fbo_feedback_welsh: "d55ce5a7-3ee5-4a87-8366-a21d7577a2c7",
+  },
+  future_delivery_email: "fsatestemail.valid@gmail.com",
+  path: {
+    "/index": {
+      on: true,
+      switches: {},
+    },
+    "/establishment-address": {
+      on: true,
+      switches: {},
+    },
+    "/la-selector": {
+      on: false,
+      switches: {
+        local_authority: {
+          "/la-selector": true,
+        },
+      },
+    },
+    "/la-established": {
+      on: true,
+      switches: {},
+    },
+    "/registration-role": {
+      on: true,
+      switches: {
+        SOLETRADER: {
+          "/operator-name": true,
+          "/operator-contact-details": true,
+        },
+        PARTNERSHIP: {
+          "/partner-name": true,
+          "/main-partnership-contact": true,
+          "/operator-contact-details": true,
+        },
+        Representative: {
+          "/operator-type": true,
+        },
+      },
+    },
+    "/operator-type": {
+      on: false,
+      switches: {
+        PERSON: {
+          "/operator-name": true,
+          "/operator-contact-details": true,
+        },
+        COMPANY: {
+          "/operator-company-details": true,
+          "/contact-representative": true,
+        },
+        CHARITY: {
+          "/operator-charity-details": true,
+          "/contact-representative": true,
+        },
+      },
+    },
+    "/operator-company-details": {
+      on: false,
+      switches: {},
+    },
+    "/operator-charity-details": {
+      on: false,
+      switches: {},
+    },
+    "/operator-name": {
+      on: false,
+      switches: {},
+    },
+    "/partner-name": {
+      on: false,
+      switches: {},
+    },
+    "/main-partnership-contact": {
+      on: false,
+      switches: {},
+    },
+    "/operator-address": {
+      on: true,
+      switches: {},
+    },
+    "/operator-address-select": {
+      on: true,
+      switches: {},
+    },
+    "/operator-address-manual": {
+      on: false,
+      switches: {
+        operator_address_line_1: {
+          "/operator-address-manual": true,
+        },
+      },
+    },
+    "/operator-contact-details": {
+      on: false,
+      switches: {},
+    },
+    "/contact-representative": {
+      on: false,
+      switches: {},
+    },
+    "/establishment-trading-name": {
+      on: true,
+      switches: {},
+    },
+    "/establishment-address-type": {
+      on: true,
+      switches: {},
+    },
+    "/establishment-address-select": {
+      on: true,
+      switches: {},
+    },
+    "/establishment-address-manual": {
+      on: false,
+      switches: {
+        establishment_address_line_1: {
+          "/establishment-address-manual": true,
+        },
+      },
+    },
+    "/establishment-contact-details": {
+      on: true,
+      switches: {},
+    },
+    "/establishment-opening-status": {
+      on: true,
+      switches: {
+        "Establishment is already trading": {
+          "/establishment-opening-date-retroactive": true,
+        },
+        "Establishment due to trade": {
+          "/establishment-opening-date-proactive": true,
+        },
+      },
+    },
+    "/establishment-opening-date-proactive": {
+      on: false,
+      switches: {},
+    },
+    "/establishment-opening-date-retroactive": {
+      on: false,
+      switches: {},
+    },
+    "/opening-days-start": {
+      on: true,
+      switches: {
+        "Every day": {
+          "/opening-hours": true,
+        },
+        "Some days": {
+          "/opening-days-some": true,
+          "/opening-hours": true,
+        },
+        "Irregular days": {
+          "/opening-days-irregular": true,
+        },
+      },
+    },
+    "/opening-days-some": {
+      on: false,
+      switches: {},
+    },
+    "/opening-days-irregular": {
+      on: false,
+      switches: {},
+    },
+    "/opening-hours": {
+      on: false,
+      switches: {},
+    },
+    "/customer-type": {
+      on: true,
+      switches: {},
+    },
+    "/business-type": {
+      on: true,
+      switches: {},
+    },
+    "/business-import-export": {
+      on: true,
+      switches: {},
+    },
+    "/business-water-supply": {
+      on: true,
+      switches: {},
+    },
+    "/business-other-details": {
+      on: true,
+      switches: {},
+    },
+    "/registration-summary": {
+      on: true,
+      switches: {},
+    },
+    "/declaration": {
+      on: true,
+      switches: {},
+    },
+  },
+});
+db.configVersion.insertOne({
   _id: "2.2.0",
   notify_template_keys: {
     fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
