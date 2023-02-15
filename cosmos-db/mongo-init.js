@@ -54,6 +54,7 @@ db.status.insertOne({
   mostRecentAddNotificationToStatusSucceeded: true,
   directSubmissionsReceived: 0,
   directRegistrationsSucceeded: 0,
+  directRegistrationsFailed: 0,
   mostRecentDirectRegistrationSucceeded: true,
 });
 db.status.insertOne({
