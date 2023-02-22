@@ -75,6 +75,12 @@ db.status.insertOne({
   getCouncilDataFailed: 0,
   getCouncilDataSucceeded: 0,
   mostRecentGetCouncilDataSucceeded: true,
+  mostRecentgetCouncilDataByMapitIDSucceeded: false,
+  getCouncilDataByMapitIDSucceeded: 10,
+  getCouncilDataByMapitIDFailed: 18,
+  mostRecentgetCouncilDataByIDSucceeded: true,
+  getCouncilDataByIDSucceeded: 4,
+  getCouncilDataByIDFailed: 0,
 });
 
 db = db.getSiblingDB("config");
