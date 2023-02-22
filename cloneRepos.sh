@@ -3,8 +3,10 @@
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-front-end.git
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git ./register-a-food-business-collections-service
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-validation.git
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-UI-tests.git
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-validation.git
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-authentication.git
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.wiki.git register-a-food-business-wiki
 
 # Login to npm to allow private packages to be obtained (this will prompt for credentials)
 echo "Enter npm credentials when prompted"
@@ -25,6 +27,10 @@ cd ..
 cd register-a-food-business-validation
 git checkout develop
 yarn install
+cd ..
+cd register-a-food-business-authentication
+git checkout develop
+npm install
 cd ..
 cd register-a-food-business-UI-tests
 git checkout develop
