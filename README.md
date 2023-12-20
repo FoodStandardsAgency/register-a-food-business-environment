@@ -14,7 +14,8 @@ This allows a developer to test and validate new features in a full local enviro
 
 ## Getting started
 
-- Verify Docker and docker-compose are installed. 
+- If using Docker, verify Docker and docker-compose are installed.
+  Alternatively, if using Podman instead of Docker, it is recommended to use a Debian WSL instance:  `wsl install -d Debian`.  Then run the command `./setup_podman.sh` which will install podman and podman-compose on the WSL instance.
 - Run `setup-packages.sh` to install yarn, npm, nvm etc. The above script will also create the following files:
   - .env
   - .env-collections-service
@@ -26,7 +27,8 @@ This allows a developer to test and validate new features in a full local enviro
   - Check the REGISTRATION_DATA_VERSION is up-to-date (check staging config database).
   - Remember to make sure the proxy details must be blank unless running behind a proxy. Ignore the warnings from npm/yarn
 - Run the following command: `./cloneRepos.sh`. This will clone the other repositories and check out the develop branches.
-- Run the following command: `./init_docker.sh`. This will take a few minutes the first time, but after that you can simply run `docker-compose up -d` to start a new environment or individual services. 
+- If using Docker, run the following command: `./init_docker.sh`. This will take a few minutes the first time, but after that you can simply run `docker-compose up -d` to start a new environment or individual services. 
+- If using Podman run the command `./init_podman.sh`. This will take a few minutes the first time, but after that you can simply run `sudo podman-compose up -d` to start a new environment or individual services. 
 - Verify the front-end is running by navigating to http://localhost:3000/new/cardiff. This may take a minute before it works, possibly due to Docker containers still starting up.
 
 ## Resetting to defaults
