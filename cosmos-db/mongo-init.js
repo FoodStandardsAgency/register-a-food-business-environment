@@ -29,11 +29,9 @@ db.localAuthorities.insertOne({
   local_council_phone_number: "123456789",
   local_council_url: "",
   country: "england",
-  auth: {
-    url: "https://fsa-pilot-enviro.tascomi.com/rest/v1/",
-    public_key: "changeme",
-    private_key: "changeme",
-  },
+  auth: null,
+  mapit_id: 152225,
+  mapit_generation: 34
 });
 
 db.localAuthorities.insertOne({
@@ -45,11 +43,47 @@ db.localAuthorities.insertOne({
   local_council_phone_number: "02388 899766",
   local_council_url: "west-dorset",
   country: "england",
-  auth: {
-    public_key: "changeme",
-    private_key: "changeme",
-    url: "https://fsa-pilot-enviro.tascomi.com/rest/v1/",
-  },
+  auth: null,
+  mapit_id: 2293,
+  new_authority_id: 4226,
+  new_authority_name: "Dorset Council"
+});
+
+db.localAuthorities.insertOne({
+  _id: 4104,
+  local_council: "Lincolnshire County Council",
+  local_council_email: "fsatestemail.valid@gmail.com",
+  local_council_notify_emails: ["fsatestemail.valid@gmail.com"],
+  local_council_phone_number: "",
+  local_council_url: "",
+  country: "england",
+  auth: null,
+  mapit_id: 2232
+});
+
+db.localAuthorities.insertOne({
+  _id: 4099,
+  local_council: "South Holland District Council",
+  local_council_email: "fsatestemail.valid@gmail.com",
+  local_council_notify_emails: ["fsatestemail.valid@gmail.com"],
+  local_council_phone_number: "01775 761161",
+  local_council_url: "south-holland",
+  separate_standards_council: 4104,
+  country: "england",
+  auth: null,
+  mapit_id: 2381
+});
+
+db.localAuthorities.insertOne({
+  _id: 4308,
+  local_council: "North Somerset Council",
+  local_council_email: "fsatestemail.valid@gmail.com",
+  local_council_notify_emails: ["fsatestemail.valid@gmail.com"],
+  local_council_phone_number: "01934 888888",
+  local_council_url: "north-somerset",
+  country: "england",
+  auth: null,
+  mapit_id: 2642
 });
 
 db.localAuthorities.insertOne({
@@ -60,6 +94,8 @@ db.localAuthorities.insertOne({
   local_council_phone_number: "01233 333445",
   local_council_url: "cardiff",
   country: "england",
+  auth: null,
+  mapit_id: 2639
 });
 
 db.localAuthorities.insertOne({
@@ -69,8 +105,11 @@ db.localAuthorities.insertOne({
   local_council_notify_emails: ["LC1_fsatestemail.validvog@gmail.com"],
   local_council_phone_number: "01233 333445",
   local_council_url: "the-vale-of-glamorgan",
-  country: "england",
+  country: "wales",
+  auth: null,
+  mapit_id: 2557
 });
+
 db.localAuthorities.insertOne({
   _id: 6008,
   local_council: "Mid & East Antrim Borough Council",
@@ -79,6 +118,8 @@ db.localAuthorities.insertOne({
   local_council_phone_number: "123456789",
   local_council_url: "mid-and-east-antrim",
   country: "northern-ireland",
+  auth: null,
+  mapit_id: 145962
 });
 
 db.createCollection("suppliers");
