@@ -28,10 +28,6 @@ cd register-a-food-business-validation
 git checkout develop
 yarn install
 cd ..
-cd register-a-food-business-authentication
-git checkout develop
-npm install
-cd ..
 cd register-a-food-business-UI-tests
 git checkout develop
 yarn install
@@ -41,4 +37,3 @@ cp .env-front-end.dist .env-front-end
 cp .env-registration-service.dist .env-registration-service
 cp .env-collections-service.dist .env-collections-service
 cp .env.dist .env
-touch config-db/mongo-init.js
