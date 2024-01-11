@@ -1,0 +1,6 @@
+{
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+        "**var/npm": true
+    }
+}
