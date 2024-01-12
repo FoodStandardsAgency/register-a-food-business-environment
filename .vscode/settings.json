@@ -1,6 +1,7 @@
 {
-    "search.useIgnoreFiles": false,
-    "search.exclude": {
-        "**var/npm": true
-    }
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+    "**coverage": true,
+    "**var/npm": true
+  }
 }
