@@ -1,4 +1,4 @@
-# To execute this docker-compose yml file use `docker-compose -f <file_name> up`
+# To execute this docker-compose yml file use `docker compose -f <file_name> up`
 # Add the `-d` flag at the end for detached execution
 version: "3.7"
 networks:
@@ -6,26 +6,26 @@ networks:
     external: true
 
 services:
-#  ff-standalone:
-#    image: selenium/standalone-firefox:latest
-#    volumes:
-#      - /dev/shm:/dev/shm
-#
-#    networks:
-#      - rafb
-#
-#
-#  chrome-standalone:
-#    image: selenium/standalone-chrome:latest
-#    volumes:
-#      - /dev/shm:/dev/shm
-#
-#    networks:
-#      - rafb
-#
-#    environment:
-#      - SE_OPTS="-whitelisted-ips="
-#
+  #  ff-standalone:
+  #    image: selenium/standalone-firefox:latest
+  #    volumes:
+  #      - /dev/shm:/dev/shm
+  #
+  #    networks:
+  #      - rafb
+  #
+  #
+  #  chrome-standalone:
+  #    image: selenium/standalone-chrome:latest
+  #    volumes:
+  #      - /dev/shm:/dev/shm
+  #
+  #    networks:
+  #      - rafb
+  #
+  #    environment:
+  #      - SE_OPTS="-whitelisted-ips="
+  #
 
   selenium-hub:
     image: selenium/hub:3.141.59-20200525

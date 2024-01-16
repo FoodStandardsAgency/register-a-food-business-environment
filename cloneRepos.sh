@@ -22,7 +22,7 @@ npm install
 cd ..
 cd register-a-food-business-front-end
 git checkout develop
-yarn install
+npm install
 cd ..
 cd register-a-food-business-validation
 git checkout develop
