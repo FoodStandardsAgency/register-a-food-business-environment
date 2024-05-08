@@ -31,7 +31,7 @@ db.localAuthorities.insertOne({
   country: "england",
   auth: null,
   mapit_id: 152225,
-  mapit_generation: 34
+  mapit_generation: 34,
 });
 
 db.localAuthorities.insertOne({
@@ -46,7 +46,7 @@ db.localAuthorities.insertOne({
   auth: null,
   mapit_id: 2293,
   new_authority_id: 4226,
-  new_authority_name: "Dorset Council"
+  new_authority_name: "Dorset Council",
 });
 
 db.localAuthorities.insertOne({
@@ -58,7 +58,7 @@ db.localAuthorities.insertOne({
   local_council_url: "",
   country: "england",
   auth: null,
-  mapit_id: 2232
+  mapit_id: 2232,
 });
 
 db.localAuthorities.insertOne({
@@ -71,7 +71,7 @@ db.localAuthorities.insertOne({
   separate_standards_council: 4104,
   country: "england",
   auth: null,
-  mapit_id: 2381
+  mapit_id: 2381,
 });
 
 db.localAuthorities.insertOne({
@@ -83,7 +83,7 @@ db.localAuthorities.insertOne({
   local_council_url: "north-somerset",
   country: "england",
   auth: null,
-  mapit_id: 2642
+  mapit_id: 2642,
 });
 
 db.localAuthorities.insertOne({
@@ -95,7 +95,7 @@ db.localAuthorities.insertOne({
   local_council_url: "cardiff",
   country: "england",
   auth: null,
-  mapit_id: 2639
+  mapit_id: 2639,
 });
 
 db.localAuthorities.insertOne({
@@ -107,7 +107,7 @@ db.localAuthorities.insertOne({
   local_council_url: "the-vale-of-glamorgan",
   country: "wales",
   auth: null,
-  mapit_id: 2557
+  mapit_id: 2557,
 });
 
 db.localAuthorities.insertOne({
@@ -119,7 +119,7 @@ db.localAuthorities.insertOne({
   local_council_url: "mid-and-east-antrim",
   country: "northern-ireland",
   auth: null,
-  mapit_id: 145962
+  mapit_id: 145962,
 });
 
 db.createCollection("suppliers");
@@ -133,16 +133,6 @@ db.suppliers.insertOne({
 db.createCollection("configVersion");
 db.configVersion.insertOne({
   _id: "2.3.0",
-  notify_template_keys: {
-    fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
-    lc_new_registration: "31e8dc1c-1a77-4c14-8119-54004e7226c3",
-    fbo_feedback: "6b3fc252-3436-4c15-9a37-caf9d70c79a3",
-    fd_feedback: "890eedd7-99b6-43e8-9d91-e7e2d79c502e",
-    fbo_submission_complete_welsh: "e7ba9297-d917-484a-855c-7a6c87c2117e",
-    lc_new_registration_welsh: "b42f76a6-c8a3-4548-8b6a-3f732e81fb56",
-    fbo_feedback_welsh: "d55ce5a7-3ee5-4a87-8366-a21d7577a2c7",
-  },
-  future_delivery_email: "fsatestemail.valid@gmail.com",
   path: {
     "/index": {
       on: true,
@@ -343,19 +333,25 @@ db.configVersion.insertOne({
   },
 });
 db.configVersion.insertOne({
-  _id: "2.2.0",
-  notify_template_keys: {
-    fbo_submission_complete: "f29f4571-e0d2-45fb-bb33-aca1123fb76b",
-    lc_new_registration: "9be4c8b8-b500-49f7-8047-2799a6bf93e4",
-    fbo_feedback: "6b3fc252-3436-4c15-9a37-caf9d70c79a3",
-    fd_feedback: "890eedd7-99b6-43e8-9d91-e7e2d79c502e",
-    fbo_submission_complete_welsh: "e7ba9297-d917-484a-855c-7a6c87c2117e",
-    lc_new_registration_welsh: "ff21a1f1-1a5f-4343-a748-dfab0251e2b9",
-    fbo_feedback_welsh: "d55ce5a7-3ee5-4a87-8366-a21d7577a2c7",
-  },
-  future_delivery_email: "fsatestemail.valid@gmail.com",
+  _id: "4.0.0",
   path: {
     "/index": {
+      on: true,
+      switches: {},
+    },
+    "/establishment-address": {
+      on: true,
+      switches: {},
+    },
+    "/la-selector": {
+      on: false,
+      switches: {
+        local_authority: {
+          "/la-selector": true,
+        },
+      },
+    },
+    "/la-established": {
       on: true,
       switches: {},
     },
@@ -445,10 +441,6 @@ db.configVersion.insertOne({
       on: true,
       switches: {},
     },
-    "/establishment-address": {
-      on: true,
-      switches: {},
-    },
     "/establishment-address-select": {
       on: true,
       switches: {},
@@ -511,211 +503,7 @@ db.configVersion.insertOne({
       on: false,
       switches: {},
     },
-    "/customer-type": {
-      on: true,
-      switches: {},
-    },
     "/business-type": {
-      on: true,
-      switches: {},
-    },
-    "/business-import-export": {
-      on: true,
-      switches: {},
-    },
-    "/business-water-supply": {
-      on: true,
-      switches: {},
-    },
-    "/business-other-details": {
-      on: true,
-      switches: {},
-    },
-    "/registration-summary": {
-      on: true,
-      switches: {},
-    },
-    "/declaration": {
-      on: true,
-      switches: {},
-    },
-  },
-});
-db.configVersion.insertOne({
-  _id: "1.7.0",
-  notify_template_keys: {
-    fbo_submission_complete: "integration-test",
-    lc_new_registration: "integration-test",
-    fbo_feedback: "integration-test",
-    fd_feedback: "integration-test",
-  },
-  future_delivery_email: "fsatestemail.valid@gmail.com",
-  path: {
-    "/index": {
-      on: true,
-      switches: {},
-    },
-    "/registration-role": {
-      on: true,
-      switches: {
-        SOLETRADER: {
-          "/operator-name": true,
-          "/operator-contact-details": true,
-        },
-        PARTNERSHIP: {
-          "/partner-name": true,
-          "/main-partnership-contact": true,
-          "/operator-contact-details": true,
-        },
-        Representative: {
-          "/operator-type": true,
-        },
-      },
-    },
-    "/operator-type": {
-      on: false,
-      switches: {
-        PERSON: {
-          "/operator-name": true,
-          "/operator-contact-details": true,
-        },
-        COMPANY: {
-          "/operator-company-details": true,
-          "/contact-representative": true,
-        },
-        CHARITY: {
-          "/operator-charity-details": true,
-          "/contact-representative": true,
-        },
-      },
-    },
-    "/operator-company-details": {
-      on: false,
-      switches: {},
-    },
-    "/operator-charity-details": {
-      on: false,
-      switches: {},
-    },
-    "/operator-name": {
-      on: false,
-      switches: {},
-    },
-    "/partner-name": {
-      on: false,
-      switches: {},
-    },
-    "/main-partnership-contact": {
-      on: false,
-      switches: {},
-    },
-    "/operator-address": {
-      on: true,
-      switches: {},
-    },
-    "/operator-address-select": {
-      on: true,
-      switches: {},
-    },
-    "/operator-address-manual": {
-      on: false,
-      switches: {
-        operator_address_line_1: {
-          "/operator-address-manual": true,
-        },
-      },
-    },
-    "/operator-contact-details": {
-      on: false,
-      switches: {},
-    },
-    "/contact-representative": {
-      on: false,
-      switches: {},
-    },
-    "/establishment-trading-name": {
-      on: true,
-      switches: {},
-    },
-    "/establishment-address-type": {
-      on: true,
-      switches: {},
-    },
-    "/establishment-address": {
-      on: true,
-      switches: {},
-    },
-    "/establishment-address-select": {
-      on: true,
-      switches: {},
-    },
-    "/establishment-address-manual": {
-      on: false,
-      switches: {
-        establishment_address_line_1: {
-          "/establishment-address-manual": true,
-        },
-      },
-    },
-    "/establishment-contact-details": {
-      on: true,
-      switches: {},
-    },
-    "/establishment-opening-status": {
-      on: true,
-      switches: {
-        "Establishment is already trading": {
-          "/establishment-opening-date-retroactive": true,
-        },
-        "Establishment due to trade": {
-          "/establishment-opening-date-proactive": true,
-        },
-      },
-    },
-    "/establishment-opening-date-proactive": {
-      on: false,
-      switches: {},
-    },
-    "/establishment-opening-date-retroactive": {
-      on: false,
-      switches: {},
-    },
-    "/opening-days-start": {
-      on: true,
-      switches: {
-        "Every day": {
-          "/opening-hours": true,
-        },
-        "Some days": {
-          "/opening-days-some": true,
-          "/opening-hours": true,
-        },
-        "Irregular days": {
-          "/opening-days-irregular": true,
-        },
-      },
-    },
-    "/opening-days-some": {
-      on: false,
-      switches: {},
-    },
-    "/opening-days-irregular": {
-      on: false,
-      switches: {},
-    },
-    "/opening-hours": {
-      on: false,
-      switches: {},
-    },
-    "/customer-type": {
-      on: true,
-      switches: {},
-    },
-    "/business-type": {
-      on: true,
-      switches: {},
-    },
-    "/business-import-export": {
       on: true,
       switches: {},
     },
