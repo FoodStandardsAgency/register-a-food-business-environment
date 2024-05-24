@@ -507,6 +507,18 @@ db.configVersion.insertOne({
       on: true,
       switches: {},
     },
+    "/business-scale": {
+      on: true,
+      switches: {},
+    },
+    "/food-type": {
+      on: true,
+      switches: {},
+    },
+    "/processing-activities": {
+      on: true,
+      switches: {},
+    },
     "/business-water-supply": {
       on: true,
       switches: {},
