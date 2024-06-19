@@ -31,7 +31,7 @@ db.localAuthorities.insertOne({
   country: "england",
   auth: null,
   mapit_id: 152225,
-  mapit_generation: 34
+  mapit_generation: 34,
 });
 
 db.localAuthorities.insertOne({
@@ -46,7 +46,7 @@ db.localAuthorities.insertOne({
   auth: null,
   mapit_id: 2293,
   new_authority_id: 4226,
-  new_authority_name: "Dorset Council"
+  new_authority_name: "Dorset Council",
 });
 
 db.localAuthorities.insertOne({
@@ -58,7 +58,7 @@ db.localAuthorities.insertOne({
   local_council_url: "",
   country: "england",
   auth: null,
-  mapit_id: 2232
+  mapit_id: 2232,
 });
 
 db.localAuthorities.insertOne({
@@ -71,7 +71,7 @@ db.localAuthorities.insertOne({
   separate_standards_council: 4104,
   country: "england",
   auth: null,
-  mapit_id: 2381
+  mapit_id: 2381,
 });
 
 db.localAuthorities.insertOne({
@@ -83,7 +83,7 @@ db.localAuthorities.insertOne({
   local_council_url: "north-somerset",
   country: "england",
   auth: null,
-  mapit_id: 2642
+  mapit_id: 2642,
 });
 
 db.localAuthorities.insertOne({
@@ -95,7 +95,7 @@ db.localAuthorities.insertOne({
   local_council_url: "cardiff",
   country: "england",
   auth: null,
-  mapit_id: 2639
+  mapit_id: 2639,
 });
 
 db.localAuthorities.insertOne({
@@ -107,7 +107,7 @@ db.localAuthorities.insertOne({
   local_council_url: "the-vale-of-glamorgan",
   country: "wales",
   auth: null,
-  mapit_id: 2557
+  mapit_id: 2557,
 });
 
 db.localAuthorities.insertOne({
@@ -119,7 +119,28 @@ db.localAuthorities.insertOne({
   local_council_url: "mid-and-east-antrim",
   country: "northern-ireland",
   auth: null,
-  mapit_id: 145962
+  mapit_id: 145962,
+});
+
+db.localAuthorities.insertOne({
+  _id: 6010,
+  local_council: "Newry, Mourne and Down District Council",
+  local_council_email: "fsatestemail.valid@gmail.com",
+  local_council_notify_emails: ["fsatestemail.valid@gmail.com"],
+  local_council_phone_number: "123456789",
+  local_council_url: "newry-mourne-and-down",
+  country: "northern-ireland",
+  auth: null,
+  mapit_id: 145964,
+});
+
+db.localAuthorities.insertOne({
+  _id: 100007,
+  local_council: "Castle Point Borough Council",
+  reg_form_url:
+    "https://www.gov.uk/apply-for-a-licence/food-premises-registration/castle-point/apply-1",
+  local_council_url: "la7",
+  mapit_id: 2320,
 });
 
 db.createCollection("suppliers");
