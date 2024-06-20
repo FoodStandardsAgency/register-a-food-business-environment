@@ -365,7 +365,7 @@ db.configVersion.insertOne({
         PARTNERSHIP: {
           "/partner-name": true,
           "/main-partnership-contact": true,
-          "/operator-contact-details": true,
+          "/partnership-contact-details": true,
         },
         Representative: {
           "/operator-type": true,
@@ -426,6 +426,10 @@ db.configVersion.insertOne({
       },
     },
     "/operator-contact-details": {
+      on: false,
+      switches: {},
+    },
+    "/partnership-contact-details": {
       on: false,
       switches: {},
     },
