@@ -27,12 +27,11 @@
   ],
   "settings": {
     "search.exclude": {
-      "**/collections": true,
+      "**/node_modules": true,
       "collections": true
     },
     "files.exclude": {
-      "**/collections": true,
-      "collections": true
+      "**/node_modules": true
     }
   }
 }
