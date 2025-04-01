@@ -1,44 +1,39 @@
 #!/bin/bash
 
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-front-end.git
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git ./register-a-food-business-collections-service
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-UI-tests.git
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-validation.git
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-authentication.git
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.wiki.git register-a-food-business-wiki
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git registrations
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-front-end.git frontend
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git collections
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-UI-tests.git uitests
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-validation.git validation
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.git adminportal
+git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.wiki.git wiki
 
 # Login to npm to allow private packages to be obtained (this will prompt for credentials)
 echo "Enter npm credentials when prompted"
 npm login
 # Install npm packages
-cd register-a-food-business-collections-service
+cd collections
 git checkout develop
 npm install
 cd ..
-cd register-a-food-business-service
+cd registrations
 git checkout develop
 npm install
 cd ..
-cd register-a-food-business-front-end
-git checkout develop
-yarn install
-cd ..
-cd register-a-food-business-validation
-git checkout develop
-yarn install
-cd ..
-cd register-a-food-business-authentication
+cd frontend
 git checkout develop
 npm install
 cd ..
-cd register-a-food-business-UI-tests
+cd validation
 git checkout develop
-yarn install
+npm install
+cd ..
+cd uitests
+git checkout develop
+npm install
 cd ..
 # Create .env and init files ready to paste an missing contents from secure location
 cp .env-front-end.dist .env-front-end
 cp .env-registration-service.dist .env-registration-service
 cp .env-collections-service.dist .env-collections-service
 cp .env.dist .env
-touch config-db/mongo-init.js

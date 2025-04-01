@@ -4,17 +4,12 @@
 sudo apt-get update
 # Install packages to allow apt to use a repository over HTTPS
 sudo apt-get -yq install apt-transport-https ca-certificates curl software-properties-common expect
-# Add Yarn's GPG key
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-# Add Yarn repository
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 # Update package index
 sudo apt-get update
 # Quietly install packages
 sudo apt-get -yq install npm yarn
 # Output some versions
 docker --version
-echo yarn $(yarn --version)
 echo npm $(npm --version)
 # Install nvm to allow convenient and precise node js version selection
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -23,7 +18,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Install desired node version
-nvm install 12.13.0
+nvm install 18.20.7
 echo node $(node --version)
 # Install Azure CLI prerequisites - these may not be needed now
 # sudo apt-get install apt-transport-https lsb-release software-properties-common dirmngr -y

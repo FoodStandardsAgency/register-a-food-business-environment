@@ -1,22 +1,25 @@
 {
   "folders": [
     {
-      "path": "register-a-food-business-front-end"
+      "path": "frontend"
     },
     {
-      "path": "register-a-food-business-service"
+      "path": "registrations"
     },
     {
-      "path": "register-a-food-business-collections-service"
+      "path": "collections"
     },
     {
-      "path": "register-a-food-business-UI-tests"
+      "path": "uitests"
     },
     {
-      "path": "register-a-food-business-validation"
+      "path": "validation"
     },
     {
-      "path": "register-a-food-business-wiki"
+      "path": "adminportal"
+    },
+    {
+      "path": "wiki"
     },
     {
       "path": "."
@@ -24,12 +27,12 @@
   ],
   "settings": {
     "search.exclude": {
-      "**/register-a-food-business-collections-service": true,
-      "register-a-food-business-collections-service": true
+      "**/collections": true,
+      "collections": true
     },
     "files.exclude": {
-      "**/register-a-food-business-collections-service": true,
-      "register-a-food-business-collections-service": true
+      "**/collections": true,
+      "collections": true
     }
   }
 }

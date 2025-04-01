@@ -4,7 +4,6 @@ register-a-food-business-front-end
 register-a-food-business-healthcheck-dashboard
 register-a-food-business-performance-tests
 register-a-food-business-validation
-register-a-food-business-authentication
 register-a-food-business-UI-tests
 register-a-food-business-wiki
 .env
@@ -16,3 +15,4 @@ register-a-food-business-wiki
 var
 node_modules
 npmcache
+/**/reports/*.xml
