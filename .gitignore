@@ -6,6 +6,13 @@ register-a-food-business-performance-tests
 register-a-food-business-validation
 register-a-food-business-UI-tests
 register-a-food-business-wiki
+registrations
+frontend
+collections
+uitests
+validation
+adminportal
+wiki
 .env
 .env-collections-service
 .env-front-end
