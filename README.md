@@ -16,9 +16,10 @@ This allows a developer to test and validate new features in a full local enviro
 
 ## Getting started
 
-- If developing on Windows, enable WSL
-- Verify Docker and docker-compose are installed.
+- If developing on Windows, enable WSL - this should be done and working bbefore installing Docker.
+- Verify Docker and docker-compose are installed. On Windows, you will need to enable WSL2 integration and maybe run `Add-LocalGroupMember -Group "docker-users" -Member $env:UserName` and restart to add user to group.
 - Run `setup-packages.sh` to install npm, nvm etc.
+- Close the terminal and start a new session.
 - Run the following command: `./cloneRepos.sh`. This will clone the other repositories and check out the develop branches. The script will also create the following files:
   - .env
   - .env-collections-service
