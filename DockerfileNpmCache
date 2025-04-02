@@ -1,4 +1,4 @@
-FROM node:16.15
+FROM node:18.16
 ARG NPM_TOKEN
 ARG http_proxy
 ARG https_proxy
@@ -14,7 +14,7 @@ RUN mkdir -p /opt/npmcache
 WORKDIR /usr/src/rafbs
 
 COPY ./registrations /usr/src/rafbs
-COPY ./collections /usr/src/rafbcs
+COPY ./registrations /usr/src/rafbcs
 COPY ./frontend /usr/src/rafbfeS
 
 COPY --chown=node:node ./bootstrap-npm-cache/npminstall.sh /home/node/npminstall.sh

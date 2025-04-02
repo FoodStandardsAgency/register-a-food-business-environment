@@ -2,7 +2,6 @@
 
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git registrations
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-front-end.git frontend
-git clone https://github.com/FoodStandardsAgency/register-a-food-business-service.git collections
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-UI-tests.git uitests
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-validation.git validation
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.git adminportal
@@ -12,10 +11,6 @@ git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.w
 echo "Enter npm credentials when prompted"
 npm login
 # Install npm packages
-cd collections
-git checkout develop
-npm install
-cd ..
 cd registrations
 git checkout develop
 npm install

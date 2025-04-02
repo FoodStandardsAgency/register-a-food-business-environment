@@ -7,9 +7,6 @@
       "path": "registrations"
     },
     {
-      "path": "collections"
-    },
-    {
       "path": "uitests"
     },
     {
@@ -27,8 +24,7 @@
   ],
   "settings": {
     "search.exclude": {
-      "**/node_modules": true,
-      "collections": true
+      "**/node_modules": true
     },
     "files.exclude": {
       "**/node_modules": true
