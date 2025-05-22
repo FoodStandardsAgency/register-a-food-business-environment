@@ -7,4 +7,4 @@ cd /usr/src/rafbcs &&
 npm install &&
 
 cd /usr/src/rafbfe &&
-yarn install
+npm install

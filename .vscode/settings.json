@@ -1,0 +1,8 @@
+{
+  "search.useIgnoreFiles": false,
+  "search.exclude": {
+    "**/bundle.js": true,
+    "**coverage": true,
+    "**var/npm": true
+  }
+}
