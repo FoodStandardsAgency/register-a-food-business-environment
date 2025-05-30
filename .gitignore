@@ -4,7 +4,6 @@ adminportal
 validation
 uitests
 wiki
-collections
 .env
 .env-collections-service
 .env-front-end
