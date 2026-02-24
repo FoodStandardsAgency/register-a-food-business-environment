@@ -7,4 +7,4 @@ sudo docker compose down --remove-orphans &&
 sudo docker compose -f docker-compose-selenium.yml down --remove-orphans &&
 sudo docker volume prune -f &&
 sudo docker network prune -f &&
-sudo rm -Rf ./var/npm/*;
+sudo rm -rf ./var/npm/*

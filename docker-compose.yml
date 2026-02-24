@@ -1,5 +1,3 @@
-version: "3.7"
-
 networks:
   rafb:
     external: true
@@ -8,6 +6,7 @@ volumes:
   mongo-cosmos-db:
   npm-cache:
   elk-data:
+
 
 services:
   bootstrap-npm-install:
@@ -23,11 +22,10 @@ services:
         - no_proxy=
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-service:/usr/src/rafbs
+      - ./registrations:/usr/src/rafbs
       - ./var/npm/rafbs-node_modules:/usr/src/rafbs/node_modules
-      #     - ./register-a-food-business-collections-service:/usr/src/rafbcs
       - ./var/npm/rafbcs-node_modules:/usr/src/rafbcs/node_modules
-      - ./register-a-food-business-front-end:/usr/src/rafbfe
+      - ./frontend:/usr/src/rafbfe
       - ./var/npm/rafbfe-node_modules:/usr/src/rafbfe/node_modules
     networks:
       - rafb
@@ -46,7 +44,7 @@ services:
 
   registrationservice:
     build:
-      context: ./register-a-food-business-service
+      context: ./registrations
       args:
         - NPM_TOKEN=${NPM_TOKEN}
         - http_proxy=${DOCKER_HTTP_PROXY}
@@ -63,39 +61,39 @@ services:
 
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-service:/usr/src/app
+      - ./registrations:/usr/src/app
       - ./var/npm/rafbs-node_modules:/usr/src/app/node_modules
 
     depends_on:
       - cosmos-db
       - bootstrap-npm-install
 
-  # collectionsservice:
-  #   build:
-  #     context: ./register-a-food-business-collections-service
-  #     args:
-  #       - NPM_TOKEN=${NPM_TOKEN}
-  #       - http_proxy=${DOCKER_HTTP_PROXY}
-  #       - https_proxy=${DOCKER_HTTPS_PROXY}
-  #       - no_proxy=
-  #   env_file:
-  #     - .env
-  #     - .env-collections-service
-  #   ports:
-  #     - "4001:4001"
-  #   depends_on:
-  #     - cosmos-db
-  #     - bootstrap-npm-install
-  #   volumes:
-  #     - npm-cache:/opt/npmcache
-  #     - ./register-a-food-business-collections-service:/usr/src/app
-  #     - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
-  #   networks:
-  #     - rafb
+  collectionsservice:
+    build:
+      context: ./registrations
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+        - http_proxy=${DOCKER_HTTP_PROXY}
+        - https_proxy=${DOCKER_HTTPS_PROXY}
+        - no_proxy=
+    env_file:
+      - .env
+      - .env-collections-service
+    ports:
+      - "4001:4001"
+    depends_on:
+      - cosmos-db
+      - bootstrap-npm-install
+    volumes:
+      - npm-cache:/opt/npmcache
+      - ./registrations:/usr/src/app
+      - ./var/npm/rafbcs-node_modules:/usr/src/app/node_modules
+    networks:
+      - rafb
 
   front-end-ui-tests:
     build:
-      context: ./register-a-food-business-UI-tests
+      context: ./uitests
       args:
         - http_proxy=${DOCKER_HTTP_PROXY}
         - https_proxy=${DOCKER_HTTPS_PROXY}
@@ -111,18 +109,19 @@ services:
 
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-UI-tests:/usr/src/app
+      - ./uitests:/usr/src/app
       - ./var/npm/rafbfeui-node_modules:/usr/src/app/node_modules
     networks:
       - rafb
   front-end:
     build:
-      context: ./register-a-food-business-front-end
+      context: ./frontend
       args:
         - http_proxy=${DOCKER_HTTP_PROXY}
         - https_proxy=${DOCKER_HTTPS_PROXY}
         - no_proxy=
         - NPM_TOKEN=${NPM_TOKEN}
+    command: [ "npm", "run", "debug:prod" ]
     env_file:
       - .env
       - .env-front-end
@@ -134,10 +133,11 @@ services:
       - bootstrap-npm-install
     volumes:
       - npm-cache:/opt/npmcache
-      - ./register-a-food-business-front-end:/usr/src/app
+      - ./frontend:/usr/src/app
       - ./var/npm/rafbfe-node_modules:/usr/src/app/node_modules
     networks:
       - rafb
+
 #  elk:
 #    image: sebp/elk
 #    ports:

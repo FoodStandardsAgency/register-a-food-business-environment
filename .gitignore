@@ -1,12 +1,9 @@
-register-a-food-business-service
-register-a-food-business-collections-service
-register-a-food-business-front-end
-register-a-food-business-healthcheck-dashboard
-register-a-food-business-performance-tests
-register-a-food-business-validation
-register-a-food-business-authentication
-register-a-food-business-UI-tests
-register-a-food-business-wiki
+registrations
+frontend
+adminportal
+validation
+uitests
+wiki
 .env
 .env-collections-service
 .env-front-end
@@ -16,3 +13,4 @@ register-a-food-business-wiki
 var
 node_modules
 npmcache
+/**/reports/*.xml
