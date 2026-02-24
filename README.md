@@ -23,15 +23,17 @@ Docker is used for convenience - Podman could be used instead and there are some
 - Verify Docker and docker-compose are installed. On Windows, you will need to enable WSL2 integration and maybe run `Add-LocalGroupMember -Group "docker-users" -Member $env:UserName` and restart to add user to group.
 - Before proceeding, ensure you are a member of the FSA GitHub org if you want all repos to clone correctly.
 - Note that this repository should be cloned to the WSL installation eg. Ubuntu and subsequent steps should be enacted there.
-- Run `setup-packages.sh` to install npm, nvm etc.
+- Run `./setup-packages.sh` to install npm, nvm etc.
 - Close the terminal and start a new session.
+- Obtain an NPM access token, which can be generated from your NPM account: this requires membership of the slice-and-dice team to work properly.
+- Run the following command: `export NPM_TOKEN=your_token_here`
 - Run the following command: `./cloneRepos.sh`. This will clone the other repositories and check out the develop branches. The script will also create the following files:
   - .env
   - .env-collections-service
   - .env-front-end
   - .env-registration-service
 - Complete missing values in these files:
-  - NPM_TOKEN can be generated from your NPM account, but requires membership of the slice-and-dice team to work properly.
+  - NPM_TOKEN should be set to the same npm access token as above.
   - A Browserstack account is needed to get BROWSERSTACK_KEY and BROWSERSTACK_USER.
   - Remember to make sure the proxy details must be blank unless running behind a proxy. Ignore the warnings from npm/yarn
 - Run the following command: `./init_docker.sh`. This will take a few minutes the first time, but after that you can simply run `docker-compose up -d` to start a new environment or individual services.

@@ -37,4 +37,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # Install desired node version
 nvm install 22.14.0
+nvm alias default 22.14.0
+nvm use default
 echo node $(node --version)
+npm install -g npm@latest

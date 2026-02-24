@@ -7,9 +7,8 @@ git clone https://github.com/FoodStandardsAgency/register-a-food-business-valida
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.git adminportal
 git clone https://github.com/FoodStandardsAgency/register-a-food-business-wiki.wiki.git wiki
 
-# Login to npm to allow private packages to be obtained (this will prompt for credentials)
-echo "Enter npm credentials when prompted"
-npm login
+npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+
 # Install npm packages
 cd registrations
 git checkout develop
